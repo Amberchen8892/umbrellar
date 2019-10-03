@@ -208,3 +208,7 @@ body{
 .flip-name{
   color:"#ff4081"
 }
+.home-page{
+  background-color: rgba(226, 178, 210, 0.5);
+  width: 60vw;
+}

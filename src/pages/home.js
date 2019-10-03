@@ -4,7 +4,7 @@ import Carousel from "react-bootstrap/Carousel";
 
 import ReactHtmlParser from "react-html-parser";
 
-const html = `<div class="red"><p><strong>Instead of:</strong>Large fish high in mercury, like tuna, sea bass and swordfish</p><p><strong>Choose:</strong>Smaller fish that are lower in mercury, like salmon, shrimp, freshwater trout, Atlantic haddock, sardines, crab, scallops and tilapia.Even though fish is healthy, large sized fish are higher in mercury and may be harmful to a developing baby’s’ brain and nervous system. Smaller fish have less mercury and are a better choice. Eat 2-3 servings of low-mercury fish per week and try to eat a variety of different types.</p></div>`;
+// const html = `<div class="red"><p><strong>Instead of:</strong>Large fish high in mercury, like tuna, sea bass and swordfish</p><p><strong>Choose:</strong>Smaller fish that are lower in mercury, like salmon, shrimp, freshwater trout, Atlantic haddock, sardines, crab, scallops and tilapia.Even though fish is healthy, large sized fish are higher in mercury and may be harmful to a developing baby’s’ brain and nervous system. Smaller fish have less mercury and are a better choice. Eat 2-3 servings of low-mercury fish per week and try to eat a variety of different types.</p></div>`;
 class Home extends Component {
   render() {
     return (
@@ -51,22 +51,57 @@ class Home extends Component {
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>
-        <div className="cards"style={{ marginTop: "50px", marginBottom:"50px" }}>
+        <div style={{display:'flex', justifyContent:"center", marginTop:"50px"}}>
+        <div className="jumbotron home-page" >
+        <h1 className="display-4" style={{fontFamily: `'Pacifico',serif`, color:"#0091ea"}}>Umbrella</h1>
+        <p className="lead" style={{fontFamily: `'Lora',serif`, color:"#a1887f"}}>"Umbrella is the go-to place for sharing birth stories, as well as pregnancy and postpartum struggles and triumphs. It was born out of the knowledge that new and expecting mothers love hearing birth stories and for most moms, sharing a birth story is a positive way to connect with other women." </p>
+        <hr className="my-4" />
+        <p> We are always with you.</p>
+       
+      </div>
+        </div>
+       
+        <div style={{display:'flex', flexWrap:"wrap", justifyContent:"center"}}>
+        <div className="cards"style={{ marginTop: "50px", marginBottom:"50px", marginRight:"30px" }}>
           <div className="card" style={{ width: "18rem" }}>
-            <img src="..." className="card-img-top" alt="..." ></img>
+            <img src="/images/front1.jpeg" className="card-img-top" alt="..." ></img>
             <div className="card-body">
-              <h5 className="card-title">Card title</h5>
+              <h5 className="card-title">Tracking</h5>
               <p className="card-text">
-                Some quick example text to build on the card title and make up
-                the bulk of the card's content.
+                Track baby and body developments in our week by week calendar. Each week, you can see how the baby grows in your womb, also how your body change to support the baby.
               </p>
-              <a href="#" className="btn btn-primary">
-                Go somewhere
-              </a>
+              
             </div>
           </div>
         </div>
-        <div>{ReactHtmlParser(html)}</div>
+        <div className="cards"style={{ marginTop: "50px", marginBottom:"50px" ,  marginRight:"30px"}}>
+          <div className="card" style={{ width: "18rem" }}>
+            <img src="/images/front2.jpeg" className="card-img-top" alt="..." ></img>
+            <div className="card-body">
+              <h5 className="card-title">Learning</h5>
+              <p className="card-text">
+                Be prepared and ready for your next journey with us. You have access to all the latest and most trusted aritcles and problems that you will meet during your pregnancy.
+              </p>
+              
+              
+            </div>
+          </div>
+        </div>
+        <div className="cards"style={{ marginTop: "50px", marginBottom:"50px" }}>
+          <div className="card" style={{ width: "18rem" }}>
+            <img src="/images/front3.jpeg" className="card-img-top" alt="..." ></img>
+            <div className="card-body">
+              <h5 className="card-title">Community</h5>
+              <p className="card-text">
+                Join our community where you can learn useful tip from other moms. And you also can share your story in the community. Besides, we together make our pregnant life be easier.
+              </p>
+              
+            </div>
+          </div>
+        </div>
+        </div>
+        
+        {/* <div>{ReactHtmlParser(html)}</div> */}
         <div
           classNAme="app-feature"
           style={{ backgroundColor: "#e0f7fa", padding: "50px" }}

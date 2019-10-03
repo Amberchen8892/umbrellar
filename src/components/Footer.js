@@ -46,7 +46,7 @@ class Footer extends Component {
                 <div className="w-100"></div>
                 <div className="col-intro">
                     <p style={{color:'white'}}>
-                        Motherly provides information of a general nature and is designed for educational purposes only. This site does not provide medical advice, diagnosis or treatment.Your use of the site indicates your agreement to be bound by our  Terms of Use and Privacy Policy. Information on our advertising guidelines can be found here.
+                        Umbrella provides information of a general nature and is designed for educational purposes only. This site does not provide medical advice, diagnosis or treatment.Your use of the site indicates your agreement to be bound by our  Terms of Use and Privacy Policy. Information on our advertising guidelines can be found here.
                     </p>
                 </div>
                 
