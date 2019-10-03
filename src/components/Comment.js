@@ -10,10 +10,10 @@ class Comment extends Component {
     render() { 
         // console.log("if comment in single comment", this.props.item)
         return (  
-            <div>
-                <form>
+            <div style={{display:"flex", flexDirection:"row"}}>
+                <form style={{marginTop:"10px"}}>
                     
-                    <Badge variant="secondary">ha</Badge>
+                    <Badge style={{backgroundColor:"#ffcdd2"}}><h4>{this.props.item.body}</h4></Badge>
                 </form>
             </div>
         );

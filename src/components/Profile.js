@@ -59,14 +59,14 @@ class Profile extends Component {
             <div class="row">
               <div className="card" style={{ width: "25rem" }}>
                 <img
-                  src="/images/flip1.jpeg"
+                  src={this.state.user.cover_url}
                   className="card-img-top"
                   alt="..."
                   style={{ height: "15rem" }}
                 />
                 <div className="card-body">
-                  <h4 className="card-title">{this.state.user.remaining <= 3 ? "1st trimester" : (this.state.user.remaining <= 6? "2nd trimester" : "3rd trimester") } </h4>
-                  <h5 className="card-title" style={{ fontSize: "" }}>
+                  <h4 className="card-title" style={{fontFamily: `'Raleway',serif`, color:"#0091ea"}}>{this.state.user.remaining <= 3 ? "1st trimester" : (this.state.user.remaining <= 6? "2nd trimester" : "3rd trimester") } </h4>
+                  <h5 className="card-title"  style={{fontFamily: `'PT Serif',serif`, color:"#ff8f00"}}>
                     {this.state.user.weeks}
                   </h5>
                   <p className="card-text">
@@ -207,7 +207,7 @@ class Profile extends Component {
                 <div className="col-md-8">
                   <div className="card-body ">
                     <h5 className="card-title" style={{color:"#2196f3"}}>{this.state.week.week}</h5>
-                    <p className="card-text">{this.state.week.mickey}</p>
+                    <p className="card-text"style={{fontFamily: `'PT Serif',serif`}}>{this.state.week.mickey}</p>
                     <p className="card-text">
                       <small className="text-muted">
                         Last updated 3 mins ago
@@ -251,13 +251,14 @@ class Profile extends Component {
           </div>
           <div className="col-md-8">
             <div className="card-body">
-              <h5 className="card-title flip-name" style={{color:"#ff9800"}}>{ReactHtmlParser(html1)}</h5>
+              <h5 className="card-title flip-name" style={{fontFamily: `'PT Serif',serif`,color:"#ff9800"}}>{ReactHtmlParser(html1)}</h5>
               <p className="card-text">{ReactHtmlParser(html2)}</p>
               <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
             </div>
           </div>
         </div>
       </div>
+      
 
           </div>
         </div>

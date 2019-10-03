@@ -85,7 +85,7 @@ class User extends Component {
 
 
     if(data.status!==200){
-        return window.location.replace('process.env.REACT_APP_FRONT_URL/login')
+        return window.location.replace(`${process.env.REACT_APP_FRONT_URL}/login`)
     } else if (data.status===200){
       data.user.remaining = this.getMonth(data.user.last_period,'month')
       data.user.weeks = this.getDate(data.user.last_period,'day')

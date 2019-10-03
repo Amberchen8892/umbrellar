@@ -1,5 +1,7 @@
 import React, { Component } from "react";
+import moment from "moment";
 import Post from "./Post"
+
 
 class Posts extends Component {
   constructor(props) {
@@ -7,6 +9,7 @@ class Posts extends Component {
     this.state = {
       user: this.props.user,
       body:'',
+      today: moment(new Date()).format('ll')
       
       
       
@@ -72,10 +75,10 @@ alert('get POSTS fail')
     });
   };
   render() {
-      console.log('posts', this.state.posts)
+      console.log('posts', this.state.today)
     return (
-
-      <div
+      <div className="body-profile">
+        <div
         className="container-prfile"
         style={{ marginTop: "20px", width: "100vw", height: "100%" }}
       >
@@ -87,14 +90,14 @@ alert('get POSTS fail')
           >
             <div className="card" style={{ width: "18rem" }}>
               <img
-                src="/images/flip1.jpeg"
+                src={this.state.user.cover_url}
                 className="card-img-top"
                 alt="..."
                 style={{ height: "15rem" }}
               />
               <div className="card-body">
-                <h4 className="card-title"> {this.state.user.remaining <= 3 ? "1st trimester" : (this.state.user.remaining <= 6? "2nd trimester" : "3rd trimester") } </h4>
-                <h5 className="card-title">{this.state.user.weeks}</h5>
+                <h4 className="card-title" style={{fontFamily: `'Raleway',serif`, color:"#0091ea"}}> {this.state.user.remaining <= 3 ? "1st trimester" : (this.state.user.remaining <= 6? "2nd trimester" : "3rd trimester") } </h4>
+                <h5 className="card-title" style={{fontFamily: `'PT Serif',serif`, color:"#ff8f00"}}>{this.state.user.weeks}</h5>
                 <p className="card-text">
                   Some quick example text to build on the card title and make up
                   the bulk of the card's content.
@@ -115,17 +118,23 @@ alert('get POSTS fail')
                 onChange={e => this.handleChange(e)}
               >
                 <div className="form-group">
-                  <p>hahahah</p>
+                  <div style={{display:"flex"}}>
+                    <img  src={this.state.user.profile_url} style={{width:"64px", height:"64px", borderRadius:"50%"}}/>
+                    <div style={{marginLeft:"10px"}}>
+                    <h3 style={{color:"#673ab7"}}>{this.state.user.username}</h3>
+                    <p><img src="/images/calendar.png" style={{width:"20px", height:"20px", marginRight:"5px" }}/>{this.state.today}</p>
+                    </div>
+                    
+                  </div>
                   <hr className="my-4" />
-                  <input className="form-control textform" id="exampleFormControlTextarea1"name="body" placeholder="what's on your mind?"rows="4" value={this.state.body} />
+                  <input className="form-control textform" id="exampleFormControlTextarea1"name="body" placeholder="what's on your mind?"rows="4" value={this.state.body} style={{color:"#00b0ff"}} />
                   
                 </div>
                 
               </form>
               <hr className="my-4" />
-              <p>
-                It uses utility classes for typography and spacing to space
-                content out within the larger container.
+              <p style={{fontFamily: `'Raleway',serif`, color:"#ff5722"}}>
+                "I’m writing my story so that others might see fragments of themselves"
               </p>
             </div>
             {this.state.posts && this.state.posts.map((item, key) =>
@@ -154,6 +163,10 @@ alert('get POSTS fail')
         </div>
         
       </div>
+        
+      </div>
+
+      
       
     );
   }

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import moment from "moment";
 import Comments from './Comments'
 import Comment from './Comment'
 class Post extends Component {
@@ -38,7 +39,7 @@ class Post extends Component {
     );
     const data = await response.json();
     if (data.status === 200)
-      return window.location.replace("process.env.REACT_APP_FRONT_URL/user/posts");
+      return window.location.replace(`${process.env.REACT_APP_FRONT_URL}/user/posts`);
     if (data.status !== 200) return alert("There is something wrong");
   };
 
@@ -61,7 +62,7 @@ class Post extends Component {
     );
     const data = await response.json();
     if (data.status === 200)
-      return window.location.replace("process.env.REACT_APP_FRONT_URL/user/posts");
+      return window.location.replace(`${process.env.REACT_APP_FRONT_URL}/user/posts`);
     if (data.status !== 200) return alert("There is something wrong");
   };
 
@@ -79,8 +80,11 @@ class Post extends Component {
   render() {
     return (
       <div className="container-post" style={{ marginTop: "50px" }}>
-        <div className="card text-center">
-          <div className="card-header">{this.state.user.username}</div>
+        <div className="card text-center" style={{marginBottom:"20px"}}>
+          <div className="card-header" style={{display:'flex'}}>
+            <img src={this.state.user.profile_url} style={{width:"32px", height:"32px", borderRadius:"50%", marginRight:"10px"}} />
+            <h5 style={{color:"#2196f3"}}>{this.state.user.username}</h5>
+          </div>
           <div className="card-body">
             <h5 className="card-title">Special title treatment</h5>
             <p className="card-text">{this.state.post.body}</p>
@@ -105,8 +109,9 @@ class Post extends Component {
               </button>
             </div>
           </div>
-          <div className="card-footer text-muted">
-            {this.state.post.created}
+          <div className="card-footer text-muted" style={{display:'flex', height:"40px"}}>
+            <img src="/images/calendar.png" style={{width:"20px", height:"20px", marginRight:"10px"}}/>
+            <p>{moment(this.state.post.created).format('ll')}</p>
           </div>
 
           <div className="card-body">

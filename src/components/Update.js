@@ -43,7 +43,7 @@ class Update extends Component {
         });
       const data= await response.json()
       if(data.status === 200)
-        return window.location.replace('process.env.REACT_APP_FRONT_URL/user/profile')
+        return window.location.replace(`${process.env.REACT_APP_FRONT_URL}/user/profile`)
       if (data.status !== 200)
         return alert("There is something wrong")
       }

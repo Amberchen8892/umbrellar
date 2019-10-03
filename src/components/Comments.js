@@ -58,12 +58,13 @@ class Comments extends Component {
     console.log('anh hai', this.state.comments)
     return (
       <div>
-        <div>
+        <div style={{display:"flex"}}>
           <img
             src={this.state.user.profile_url}
-            style={{ width: "30px", height: "30px", borderRadius: "50%" }}
+            style={{ width: "30px", height: "30px", borderRadius: "50%", marginRight:"20px" }}
           />
           <form
+            
             onSubmit={e => this.handleComment(e)}
             onChange={e => this.handleChange(e)}
           >
@@ -71,6 +72,7 @@ class Comments extends Component {
               style={{ borderRadius: "10px" }}
               name="body"
               value={this.state.body}
+              
             />
           </form>
         </div>

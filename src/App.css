@@ -156,7 +156,7 @@ body{
   margin-top: 20px;
   border: 1px solid #f1f1f1;
   perspective: 1000px; /* Remove this if you don't want the 3D effect */
-  box-shadow: 5px 5px grey
+  box-shadow: 3px 3px rgb(236, 168, 200)
 }
 .flip-card-inner {
   position: relative;

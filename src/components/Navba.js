@@ -53,7 +53,7 @@ export class Navba extends Component {
     e.preventDefault();
     this.logmeout();
     localStorage.clear("token");
-    window.location.replace("process.env.REACT_APP_FRONT_URL/login");
+    window.location.replace(`${process.env.REACT_APP_FRONT_URL}/login`);
   };
   logmeout = async () => {
     const response = await fetch(`${process.env.REACT_APP_API}logout`, {
