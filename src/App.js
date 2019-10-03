@@ -1,16 +1,4 @@
-// import React from 'react';
 
-// import './App.css';
-
-// function App() {
-//   return (
-//     <div className="App">
-//       My app
-//     </div>
-//   );
-// }
-
-// export default App;
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import './App.css';
@@ -28,7 +16,7 @@ import Signup from "./pages/signup";
 import Login from "./pages/login";
 import User from "./components/User";
 
-
+const hello = process.env.REACT_APP_FRONT_URL
 const theme = createMuiTheme({
   palette: {
     primary: {
@@ -72,6 +60,7 @@ class App extends Component {
   }
 
   render() {
+    console.log('helo',hello)
     return (
       <ThemeProvider theme={theme}>
         <div className="App">
