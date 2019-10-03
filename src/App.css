@@ -1,22 +1,210 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
+html,
+body{
+  width: 100vw;
+  height: 100vh;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  
+}
+.container-fluid{
+  margin-top: 100px;
+  width: 100vw;
+  
 }
 
-.App-link {
-  color: #09d3ac;
+.box-1{
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.col-intro{
+  border-top: 1px solid rgb(10, 10, 10);
+  text-align: center;
+  font-size: 12px;
+  padding: 1rem;
+  margin-top: 20px;
+}
+.box-2{
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  
+}
+.box-3{
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem
+}
+.box-4{
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+}
+.custome-nav{
+  width: 100vw;
+  background-color: #00bcd4;
+  margin-top: 100px;
+  position: relative;
+
+}
+.custome-jumbo{
+  width: 60vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+
+}
+.container1{
+  display: flex;
+  justify-content: center;
+  
+}
+.form-login{
+  width: 50vw
+}
+.red{
+  color: orangered;
+}
+.box{
+  width: 100px;
+  height: 100px;
+  margin-top: 10px;
+  background-color: aqua
+}
+.sidebar{
+  width: 50px;
+  
+  
+  
+}
+.app-feature{
+  width: 100vw;
+  height: 40vh;
+  background-color: rgb(12, 207, 71)
+  
+}
+.text{
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+.title{
+  display: flex;
+  justify-content: center;
+  align-items: center
+
+}
+.about{
+  width: 100vw;
+  height: 500px;
+
+  background-image: url('/images/about.png');
+  background-size: 100vw 500px;
+}
+.about-text{
+  display: block;
+  margin-left: 50px;
+  margin-top: 60px;
+  color: rgb(165, 149, 144);
+  font-family: 'Quicksand', sans-serif;
+  
+}
+.update-css{
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+
+.parent {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+.image-1 {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+.image-2 {
+  position: absolute;
+  bottom: 5px;
+  left: 30px
+}
+.image2 {
+  position: absolute;
+  bottom: 5px;
+  left: 15px;
+}
+.origin{
+  width:20px;
+  height:20px;
+  border: 1px solid black
+}
+.now{
+  width:20px;
+  height:20px;
+  background-color: rgb(252, 199, 135)
+}
+.flip-card {
+  background-color: transparent;
+  width: 350px;
+  height: 200px;
+  margin-top: 20px;
+  border: 1px solid #f1f1f1;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+  box-shadow: 5px 5px grey
+}
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+.flip-card-front {
+  background-color:white;
+  color: rgb(0, 0, 0);
+}
+.flip-card-back {
+  background-color: rgb(101, 216, 216, 0.4);
+  color: rgb(238, 128, 214);
+  transform: rotateY(180deg);
+}
+.input-custome{
+  border: none;
+}
+.flip-card-back p {
+  color: black
+}
+
+.shadow-jumbo{
+  box-shadow: 10px 10px 5px grey;
+}
+.textform{
+  border: none
+}
+.body-profile{
+  background-color: rgba(179, 248, 250, 0.2);
+  padding-bottom: 50px;
+}
+
+.card-week{
+  box-shadow: 3px 3px grey
+}
+.flip-name{
+  color:"#ff4081"
 }
