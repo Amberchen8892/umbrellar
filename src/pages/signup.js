@@ -31,7 +31,7 @@ class Signup extends Component {
         last_period: this.state.last_period,
         
       };
-      const response = await fetch("process.env.REACT_APP_APIsignup", {
+      const response = await fetch("${process.env.REACT_APP_API}signup", {
         method: "POST",
         body: JSON.stringify(newuser),
         headers: new Headers({

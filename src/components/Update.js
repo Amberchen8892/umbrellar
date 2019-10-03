@@ -32,7 +32,7 @@ class Update extends Component {
             
         };
         
-        const response = await fetch("process.env.REACT_APP_APIupdate", {
+        const response = await fetch(`${process.env.REACT_APP_API}update`, {
         method: "POST",
         body: JSON.stringify(update),
         headers: new Headers({

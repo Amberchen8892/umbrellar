@@ -26,7 +26,7 @@ class Post extends Component {
     };
 
     const response = await fetch(
-      `process.env.REACT_APP_APIdelete/${this.state.id}`,
+      `${process.env.REACT_APP_API}delete/${this.state.id}`,
       {
         method: "POST",
         body: JSON.stringify(deletePost),
@@ -49,7 +49,7 @@ class Post extends Component {
       id: this.state.post.id
     };
     const response = await fetch(
-      `process.env.REACT_APP_APIedit_post/${this.state.post.id}`,
+      `${process.env.REACT_APP_API}edit_post/${this.state.post.id}`,
       {
         method: "POST",
         body: JSON.stringify(editpost),

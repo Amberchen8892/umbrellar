@@ -22,7 +22,7 @@ class Comments extends Component {
       id: this.state.post.id
     };
     const response = await fetch(
-      `process.env.REACT_APP_APIposts/${this.state.post.id}/comments`,
+      `${process.env.REACT_APP_API}posts/${this.state.post.id}/comments`,
       {
         method: "POST",
         body: JSON.stringify(comment),

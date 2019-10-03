@@ -73,7 +73,7 @@ class User extends Component {
     return result.months
   }
   checkToken= async ()=>{
-    const response = await fetch("process.env.REACT_APP_APIusers", {
+    const response = await fetch(`${process.env.REACT_APP_API}users`, {
       method: "POST",
       headers: {
         'Content-Type': 'application/json',

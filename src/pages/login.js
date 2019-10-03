@@ -17,7 +17,7 @@ class Login extends Component {
       password: this.state.password
     };
     console.log("===", check_login)
-    const response = await fetch("process.env.REACT_APP_APIlogin", {
+    const response = await fetch(`${process.env.REACT_APP_API}login`, {
       method: "POST",
       body: JSON.stringify(check_login),
       headers: new Headers({
@@ -85,7 +85,7 @@ class Login extends Component {
                   Submit
                 </button>
               </div>
-              <a href="process.env.REACT_APP_APIlogin/facebook">Facebook</a>
+              <a href={`${process.env.REACT_APP_API}login/facebook`}>Facebook</a>
             </form>
           </div>
         </div>

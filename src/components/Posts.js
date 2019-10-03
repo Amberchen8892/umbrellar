@@ -23,7 +23,7 @@ class Posts extends Component {
     let newpost={
       body:this.state.body
     };
-    const response = await fetch("process.env.REACT_APP_APIcreate_posts", {
+    const response = await fetch(`${process.env.REACT_APP_API}create_posts`, {
       method: "POST",
       body: JSON.stringify(newpost),
       headers: new Headers({
@@ -46,7 +46,7 @@ class Posts extends Component {
 
 
   getPosts= async ()=>{
-    const response = await fetch("process.env.REACT_APP_APIposts", {
+    const response = await fetch(`${process.env.REACT_APP_API}posts`, {
       method: "GET",
       headers: {
         'Content-Type': 'application/json',
