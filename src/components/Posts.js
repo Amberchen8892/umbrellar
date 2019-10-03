@@ -23,7 +23,7 @@ class Posts extends Component {
     let newpost={
       body:this.state.body
     };
-    const response = await fetch("https://127.0.0.1:5000/create_posts", {
+    const response = await fetch("process.env.REACT_APP_APIcreate_posts", {
       method: "POST",
       body: JSON.stringify(newpost),
       headers: new Headers({
@@ -39,14 +39,14 @@ class Posts extends Component {
         })
         this.props.fetch()
       }
-        // return window.location.replace('http://localhost:3000/user/posts/?id=${id}')
+        // return window.location.replace('process.env.REACT_APP_FRONT_URL/user/posts/?id=${id}')
       if (data.status !== 200)
         return alert("There is something wrong")
   }
 
 
   getPosts= async ()=>{
-    const response = await fetch("https://127.0.0.1:5000/posts", {
+    const response = await fetch("process.env.REACT_APP_APIposts", {
       method: "GET",
       headers: {
         'Content-Type': 'application/json',

@@ -32,7 +32,7 @@ class Update extends Component {
             
         };
         
-        const response = await fetch("https://127.0.0.1:5000/update", {
+        const response = await fetch("process.env.REACT_APP_APIupdate", {
         method: "POST",
         body: JSON.stringify(update),
         headers: new Headers({
@@ -43,7 +43,7 @@ class Update extends Component {
         });
       const data= await response.json()
       if(data.status === 200)
-        return window.location.replace('http://localhost:3000/user/profile')
+        return window.location.replace('process.env.REACT_APP_FRONT_URL/user/profile')
       if (data.status !== 200)
         return alert("There is something wrong")
       }

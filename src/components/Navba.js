@@ -28,7 +28,7 @@ export class Navba extends Component {
   };
   checkToken = async () => {
     console.log(this.props.token, "27");
-    const response = await fetch("https://127.0.0.1:5000/users", {
+    const response = await fetch("process.env.REACT_APP_APIusers", {
       method: "POST",
       headers: new Headers({
         "Content-Type": "application/json",
@@ -53,10 +53,10 @@ export class Navba extends Component {
     e.preventDefault();
     this.logmeout();
     localStorage.clear("token");
-    window.location.replace("http://localhost:3000/login");
+    window.location.replace("process.env.REACT_APP_FRONT_URL/login");
   };
   logmeout = async () => {
-    const response = await fetch("https://127.0.0.1:5000/logout", {
+    const response = await fetch("process.env.REACT_APP_APIlogout", {
       method: "POST",
       headers: {
         Authorization: `Token ${localStorage.getItem("token")}`,

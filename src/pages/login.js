@@ -17,7 +17,7 @@ class Login extends Component {
       password: this.state.password
     };
     console.log("===", check_login)
-    const response = await fetch("https://127.0.0.1:5000/login", {
+    const response = await fetch("process.env.REACT_APP_APIlogin", {
       method: "POST",
       body: JSON.stringify(check_login),
       headers: new Headers({
@@ -28,7 +28,7 @@ class Login extends Component {
       console.log(data,'data')
       if(data.status === 200)
         localStorage.setItem('token',data.token)
-        window.location.replace('http://localhost:3000/user/update')
+        window.location.replace('process.env.REACT_APP_FRONT_URL/user/update')
       if (data.status !== 200)
         return alert("There is something wrong")
     }
@@ -85,7 +85,7 @@ class Login extends Component {
                   Submit
                 </button>
               </div>
-              <a href="https://127.0.0.1:5000/login/facebook">Facebook</a>
+              <a href="process.env.REACT_APP_APIlogin/facebook">Facebook</a>
             </form>
           </div>
         </div>

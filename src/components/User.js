@@ -22,7 +22,7 @@ class User extends Component {
     super(props);
     if(!this.props.token){
         window.location.replace(
-            `http://localhost:3000/login`
+            `process.env.REACT_APP_FRONT_URL/login`
           );
     }
     
@@ -73,7 +73,7 @@ class User extends Component {
     return result.months
   }
   checkToken= async ()=>{
-    const response = await fetch("https://127.0.0.1:5000/users", {
+    const response = await fetch("process.env.REACT_APP_APIusers", {
       method: "POST",
       headers: {
         'Content-Type': 'application/json',
@@ -85,7 +85,7 @@ class User extends Component {
 
 
     if(data.status!==200){
-        return window.location.replace('http://localhost:3000/login')
+        return window.location.replace('process.env.REACT_APP_FRONT_URL/login')
     } else if (data.status===200){
       data.user.remaining = this.getMonth(data.user.last_period,'month')
       data.user.weeks = this.getDate(data.user.last_period,'day')

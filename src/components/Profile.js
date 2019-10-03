@@ -21,7 +21,7 @@ class Profile extends Component {
   };
   
   getWeek = async num => {
-    const response = await fetch(`https://127.0.0.1:5000/week/${num}`, {
+    const response = await fetch(`process.env.REACT_APP_APIweek/${num}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -60,7 +60,7 @@ class App extends Component {
 
     // if (!accessToken && !existingToken) {
     //   window.location.replace(
-    //     `http://localhost:3000/login`
+    //     `process.env.REACT_APP_FRONT_URL/login`
     //   );
     // }
     if (accessToken) {

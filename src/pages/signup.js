@@ -31,7 +31,7 @@ class Signup extends Component {
         last_period: this.state.last_period,
         
       };
-      const response = await fetch("https://127.0.0.1:5000/signup", {
+      const response = await fetch("process.env.REACT_APP_APIsignup", {
         method: "POST",
         body: JSON.stringify(newuser),
         headers: new Headers({
@@ -41,7 +41,7 @@ class Signup extends Component {
       console.log(response)
       const data= await response.json()
       if(data.status === 200)
-        return window.location.replace('http://localhost:3000/user/profile')
+        return window.location.replace('process.env.REACT_APP_FRONT_URL/user/profile')
       if (data.status !== 200)
         return alert("There is something wrong")
 

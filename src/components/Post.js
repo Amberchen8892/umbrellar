@@ -26,7 +26,7 @@ class Post extends Component {
     };
 
     const response = await fetch(
-      `https://127.0.0.1:5000/delete/${this.state.id}`,
+      `process.env.REACT_APP_APIdelete/${this.state.id}`,
       {
         method: "POST",
         body: JSON.stringify(deletePost),
@@ -38,7 +38,7 @@ class Post extends Component {
     );
     const data = await response.json();
     if (data.status === 200)
-      return window.location.replace("http://localhost:3000/user/posts");
+      return window.location.replace("process.env.REACT_APP_FRONT_URL/user/posts");
     if (data.status !== 200) return alert("There is something wrong");
   };
 
@@ -49,7 +49,7 @@ class Post extends Component {
       id: this.state.post.id
     };
     const response = await fetch(
-      `https://127.0.0.1:5000/edit_post/${this.state.post.id}`,
+      `process.env.REACT_APP_APIedit_post/${this.state.post.id}`,
       {
         method: "POST",
         body: JSON.stringify(editpost),
@@ -61,7 +61,7 @@ class Post extends Component {
     );
     const data = await response.json();
     if (data.status === 200)
-      return window.location.replace("http://localhost:3000/user/posts");
+      return window.location.replace("process.env.REACT_APP_FRONT_URL/user/posts");
     if (data.status !== 200) return alert("There is something wrong");
   };
 
