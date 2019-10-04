@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Subbar from './Subbar'
-import Week from './Week'
+import Subar_nutrition from './Subar_nutrition'
+import Nutrition from './Nutrition'
 
-class Byweeks extends Component {
+class Nutritions extends Component {
     constructor(props) {
         super(props);
         this.state = {  }
@@ -13,7 +13,7 @@ componentDidMount=()=>{
 
     }
 getArticles= async ()=>{
-        const response = await fetch(`${process.env.REACT_APP_API}byweek`, {
+        const response = await fetch(`${process.env.REACT_APP_API}getnutri`, {
             method: "POST",
             headers: {
               'Content-Type': 'application/json',
@@ -24,26 +24,26 @@ getArticles= async ()=>{
         if(data.status !==200) alert('cannot get data')
               else if (data.status===200){
                   this.setState({
-                       by_weeks:data.by_week
+                       nutris:data.nutris
                     })
                 }
     }
     render() { 
-        console.log("check data",this.state.by_weeks)
-        console.log("check token",this.props.token)
+       
         return ( 
             <div>
                 
                 <div className="row">
-                <div class="col-12 col-md-4">
-                <Subbar by_week={this.state.by_weeks} token={this.state.token} user={this.state.user} />
+                <div class="col-12 col-md-3">
+                <Subar_nutrition nutris={this.state.nutris} token={this.state.token} user={this.state.user} />
+                
                 </div>
-    <div class="col-6 col-md-8">
+    <div class="col-6 col-md-9">
     
 
-        <Switch>{this.state.by_weeks && 
-        this.state.by_weeks.map((el,idx)=> 
-            <Route  path={`/user/byweek/week/${idx+1}`} exact={true} component={(props)=><Week week={el} token={this.state.token} user={this.state.user} {...props}/>}  />
+        <Switch>{this.state.nutris && 
+        this.state.nutris.map((el,idx)=> 
+            <Route  path={`/user/nutritions/week/${idx+1}`} exact={true} component={(props)=><Nutrition nutri={el} token={this.state.token} user={this.state.user} {...props}/>}  />
 
         )
         }
@@ -61,4 +61,4 @@ getArticles= async ()=>{
     }
 }
 
-export default Byweeks;
+export default Nutritions;

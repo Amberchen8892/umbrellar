@@ -7,6 +7,9 @@ import Profile from "./Profile";
 import Posts from "./Posts";
 import Community from "./Community";
 import Byweek from "./Byweek";
+import Babies from "./Babies";
+import Nutritions from "./Nutritions";
+import Wombs from "./Wombs";
 
 import datetimeDifference from "datetime-difference";
 import moment from 'moment'
@@ -108,12 +111,16 @@ class User extends Component {
             <Sidebar />
           </div>
           <div >
+            <Switch>
             <Route exact path="/user/update" render={(props)=><Update token={this.state.token} user={this.state.user} {...props}/>}  />
             <Route exact path="/user/profile" render={(props)=><Profile token={this.state.token} user={this.state.user} {...props}/>}  />
             <Route exact path="/user/posts" render={(props)=><Posts  posts = {this.state.user.post} token={this.state.token} user={this.state.user} fetch={this.checkToken} {...props}/>}  />
             <Route exact path="/user/community" render={(props)=><Community  token={this.state.token} user={this.state.user} {...props}/>}  />
-            <Route exact path="/user/byweek" render={(props)=><Byweek  token={this.state.token} user={this.state.user} {...props}/>}  />
-            
+            <Route path="/user/byweek" render={(props)=><Byweek  token={this.state.token} user={this.state.user} {...props}/>}  />
+            <Route path="/user/babies" render={(props)=><Babies  token={this.state.token} user={this.state.user} {...props}/>}  />
+            <Route path="/user/nutritions" render={(props)=><Nutritions  token={this.state.token} user={this.state.user} {...props}/>}  />
+            <Route path="/user/inthewombs" render={(props)=><Wombs token={this.state.token} user={this.state.user} {...props}/>}  />
+            </Switch>
           </div>
           </div>
         

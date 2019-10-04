@@ -54,7 +54,7 @@ class Home extends Component {
         <div style={{display:'flex', justifyContent:"center", marginTop:"50px"}}>
         <div className="jumbotron home-page" >
         <h1 className="display-4" style={{fontFamily: `'Pacifico',serif`, color:"#0091ea"}}>Umbrella</h1>
-        <p className="lead" style={{fontFamily: `'Lora',serif`, color:"#a1887f"}}>"Umbrella is the go-to place for sharing birth stories, as well as pregnancy and postpartum struggles and triumphs. It was born out of the knowledge that new and expecting mothers love hearing birth stories and for most moms, sharing a birth story is a positive way to connect with other women." </p>
+        <p className="lead" style={{fontFamily: `'Lora',serif`, color:"#3e2723"}}>"Umbrella is the go-to place for sharing birth stories, as well as pregnancy and postpartum struggles and triumphs. It was born out of the knowledge that new and expecting mothers love hearing birth stories and for most moms, sharing a birth story is a positive way to connect with other women." </p>
         <hr className="my-4" />
         <p> We are always with you.</p>
        

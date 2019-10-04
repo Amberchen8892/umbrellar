@@ -28,7 +28,7 @@ class Login extends Component {
       console.log(data,'data')
       if(data.status === 200)
         localStorage.setItem('token',data.token)
-        window.location.replace('process.env.REACT_APP_FRONT_URL/user/update')
+        window.location.replace(`${process.env.REACT_APP_FRONT_URL}/user/update`)
       if (data.status !== 200)
         return alert("There is something wrong")
     }

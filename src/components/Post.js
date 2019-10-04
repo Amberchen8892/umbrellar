@@ -96,9 +96,9 @@ class Post extends Component {
               >
                 Delete
               </button>
-              <button type="submit" className="btn btn-primary">
+              {/* <button type="submit" className="btn btn-primary">
                 Comment
-              </button>
+              </button> */}
               <button
                 type="submit"
                 className="btn btn-primary"

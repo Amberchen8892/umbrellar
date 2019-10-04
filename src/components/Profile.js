@@ -44,10 +44,12 @@ class Profile extends Component {
     console.log("duedate", moment(this.state.user.last_period).format("L"));
     console.log("today", moment(dateTime()).format("L"));
     console.log("body", this.state.user.countweeks)
+    console.log("check nutri",this.state.week.nutri_name)
 
     const html=this.state.week.nutri_name
     const html1=this.state.week.baby_name
     const html2=this.state.week.baby_intro
+    const html4=this.state.week.nutri_intro
     return (
       <div className="body-profile">
         <div
@@ -153,15 +155,15 @@ class Profile extends Component {
                   <div className="flip-card-inner">
                     <div className="flip-card-front">
                       <img
-                        src={this.state.week.week_image}
+                        src={this.state.week.womb_image}
                         alt="Avatar"
                         style={{ width: "100%", height: "100%" }}
                       />
                     </div>
                     <div className="flip-card-back">
-                      <h1>John Doe</h1>
-                      <p>Architect &amp; Engineer</p>
-                      <p>We love that guy</p>
+                      <h1>{this.state.week.womb_name}</h1>
+                      
+                      <p>{this.state.week.womb_intro}</p>
                     </div>
                   </div>
                 
@@ -230,10 +232,8 @@ class Profile extends Component {
                 <div className="col-md-8">
                   <div className="card-body">
                     <h5 className="card-title" style={{color:"#ff4081"}}>{ReactHtmlParser(html)}</h5>
-                    <p className="card-text">
-                      This is a wider card with supporting text below as a
-                      natural lead-in to additional content. This content is a
-                      little bit longer.
+                    <p className="card-text"style={{fontFamily: `'PT Serif',serif`}}>
+                    {ReactHtmlParser(html4)}
                     </p>
                     <p className="card-text">
                       <small className="text-muted">
@@ -252,7 +252,7 @@ class Profile extends Component {
           <div className="col-md-8">
             <div className="card-body">
               <h5 className="card-title flip-name" style={{fontFamily: `'PT Serif',serif`,color:"#ff9800"}}>{ReactHtmlParser(html1)}</h5>
-              <p className="card-text">{ReactHtmlParser(html2)}</p>
+              <p className="card-text" style={{fontFamily: `'PT Serif',serif`}}>{ReactHtmlParser(html2)}</p>
               <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
             </div>
           </div>

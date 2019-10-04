@@ -31,7 +31,7 @@ class Sidebar extends Component {
   
 </ul> */}
 <Navbar bg="light" expand="lg">
-  <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+  <Navbar.Brand href="#home">Make life easier</Navbar.Brand>
   <Navbar.Toggle aria-controls="basic-navbar-nav" />
   <Navbar.Collapse id="basic-navbar-nav">
     <Nav className="mr-auto">
@@ -40,6 +40,9 @@ class Sidebar extends Component {
       <Nav.Link href="/user/posts">Posts</Nav.Link>
       <Nav.Link href="/user/community">Community</Nav.Link>
       <Nav.Link href="/user/byweek">By Week</Nav.Link>
+      <Nav.Link href="/user/babies">Babies</Nav.Link>
+      <Nav.Link href="/user/nutritions">Nutrition</Nav.Link>
+      <Nav.Link href="/user/inthewombs">In the womb</Nav.Link>
       {/* <NavDropdown title="Dropdown" id="basic-nav-dropdown">
         <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
         <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
@@ -48,10 +51,10 @@ class Sidebar extends Component {
         <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
       </NavDropdown> */}
     </Nav>
-    <Form inline>
+    {/* <Form inline>
       <FormControl type="text" placeholder="Search" className="mr-sm-2" />
       <Button variant="outline-success">Search</Button>
-    </Form>
+    </Form> */}
   </Navbar.Collapse>
 </Navbar>
 
