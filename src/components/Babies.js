@@ -31,7 +31,7 @@ getArticles= async ()=>{
     render() { 
        
         return ( 
-            <div>
+            <div style={{marginTop:"50px"}}>
                 
                 <div className="row">
                 <div class="col-12 col-md-4">

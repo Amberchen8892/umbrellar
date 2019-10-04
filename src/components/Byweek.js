@@ -32,7 +32,7 @@ getArticles= async ()=>{
         console.log("check data",this.state.by_weeks)
         console.log("check token",this.props.token)
         return ( 
-            <div>
+            <div style={{marginTop:"50px"}}>
                 
                 <div className="row">
                 <div class="col-12 col-md-4">

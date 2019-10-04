@@ -151,7 +151,7 @@ class Profile extends Component {
             </div>
             <div class="row" >
               
-                <div className="flip-card" style={{width:"25rem"}}>
+                <div className="flip-card" style={{width:"25rem", height:"15rem"}}>
                   <div className="flip-card-inner">
                     <div className="flip-card-front">
                       <img
@@ -184,7 +184,7 @@ class Profile extends Component {
                       />
                     </div>
                     <div className="flip-card-back">
-                      <h1>{this.state.week.profile_intro_name}</h1>
+                      <h1><a href="#">{this.state.week.profile_intro_name}</a></h1>
                       
                       <p>{this.state.week.profile_intro_body}</p>
                     </div>
