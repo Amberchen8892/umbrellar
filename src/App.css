@@ -56,11 +56,15 @@ body{
   justify-content: center;
   align-items: center;
   margin-top: 20px;
+  background-color: rgb(248, 205, 205, 0.8);
+  border-radius: 40px
+
 
 }
 .container1{
   display: flex;
   justify-content: center;
+  
   
 }
 .form-login{

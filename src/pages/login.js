@@ -54,7 +54,7 @@ class Login extends Component {
               onSubmit={e => this.handleLogin(e)}
               onChange={e => this.handleChange(e)}
             >
-              <h1 style={{ textAlign: "center" }}>Login</h1>
+              <h1 style={{ textAlign: "center", color:"#e91e63",fontFamily: `'Lobster',serif` }}>Login</h1>
               <div class="form-group">
                 <label for="exampleInputEmail1">Email address</label>
                 <input
@@ -64,6 +64,7 @@ class Login extends Component {
                   id="exampleInputEmail1"
                   aria-describedby="emailHelp"
                   placeholder="Enter email"
+                  autoFocus
                 ></input>
                 <small id="emailHelp" class="form-text text-muted">
                   We'll never share your email with anyone else.
@@ -85,7 +86,8 @@ class Login extends Component {
                   Submit
                 </button>
               </div>
-              <a href={`${process.env.REACT_APP_API}login/facebook`}>Facebook</a>
+              <div style={{ textAlign: "center", color:"#f06292" }}>Or you can login with </div>
+              <div style={{display:"flex", justifyContent:"center"}}><a href={`${process.env.REACT_APP_API}login/facebook`} style={{ textAlign: "center", color:"#01579b" }}>Facebook</a></div>
             </form>
           </div>
         </div>

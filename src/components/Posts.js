@@ -146,16 +146,55 @@ alert('get POSTS fail')
             class=".col-6 .col-md-4"
             style={{ marginLeft: "20px", marginTop: "20px" }}
           >
-            <div className="card" style={{ width: "18rem" }}>
-              <img src="..." className="card-img-top" alt="..." />
+            <div className="card" style={{ width: "18rem", marginBottom:"30px" }}>
+              <img src="/images/advert5.jpg" className="card-img-top" alt="..." />
               <div className="card-body">
                 <h5 className="card-title">Card title</h5>
                 <p className="card-text">
                   Some quick example text to build on the card title and make up
                   the bulk of the card's content.
                 </p>
-                <a href="#" className="btn btn-primary">
-                  Go somewhere
+                <a href="https://www.amazon.com/s?k=car+seat&ref=nb_sb_noss_1" className="btn btn-primary">
+                  Buy Now
+                </a>
+              </div>
+            </div>
+            <div className="card" style={{ width: "18rem", marginBottom:"30px" }}>
+              <img src="/images/advert1.jpg" className="card-img-top" alt="..." />
+              <div className="card-body">
+                <h5 className="card-title">Card title</h5>
+                <p className="card-text">
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </p>
+                <a href="https://www.carters.com/carters-baby-girl-accessories/V_126H530.html" className="btn btn-primary">
+                  Buy Now
+                </a>
+              </div>
+            </div>
+            <div className="card" style={{ width: "18rem", marginBottom:"30px" }}>
+              <img src="/images/advert2.jpg" className="card-img-top" alt="..." />
+              <div className="card-body">
+                <h5 className="card-title">Card title</h5>
+                <p className="card-text">
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </p>
+                <a href="https://www.carters.com/carters-baby-boy-accessories/V_17579210.html" className="btn btn-primary">
+                  Buy Now
+                </a>
+              </div>
+            </div>
+            <div className="card" style={{ width: "18rem", marginBottom:"30px" }}>
+              <img src="/images/advert3.jpeg" className="card-img-top" alt="..." />
+              <div className="card-body">
+                <h5 className="card-title">Card title</h5>
+                <p className="card-text">
+                  Some quick example text to build on the card title and make up
+                  the bulk of the card's content.
+                </p>
+                <a href="https://www.amazon.com/PharMeDoc-Pregnancy-Maternity-Detachable-Extension/dp/B07WDYX3RL/ref=sr_1_2?crid=3CBNN9MV0AMDJ&keywords=pillow+for+pregnant+women&qid=1570178875&sprefix=pillow+for+pre%2Caps%2C642&sr=8-2" className="btn btn-primary">
+                  Buy Now
                 </a>
               </div>
             </div>

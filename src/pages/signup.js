@@ -64,7 +64,7 @@ class Signup extends Component {
   render() {
     
     return (
-      <div className="container">
+      <div className="container" style={{display:"flex", justifyContent:"center", alignItem:"center"}}>
         <div className="jumbotron jumbotron-fluid custome-jumbo">
           <div className="container">
             <form
@@ -73,7 +73,7 @@ class Signup extends Component {
               onChange={e => this.handleChange(e)}
             >
               <div className="form-group">
-                <h1 style={{ textAlign: "center" }}>Signup</h1>
+                <h1 style={{ textAlign: "center", color:"#e91e63",fontFamily: `'Lobster',serif` }}>Signup</h1>
                 <label for="exampleInputEmail1">Username</label>
                 <input
 
