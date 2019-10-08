@@ -62,10 +62,7 @@ class Profile extends Component {
     const html4 = this.state.week.nutri_intro;
     return (
       <div className="body-profile">
-        <div
-          className="container"
-          style={{ marginLeft: "50px", marginRight: "20px" }}
-        >
+        
           <div class="row">
             <div class="col-md-4" style={{ marginTop: "50px", display:"flex", justifyContent:"center", alignItems:"center" , flexDirection:"column"}}>
               <div class="row">
@@ -129,7 +126,7 @@ class Profile extends Component {
                             {/* {this.state.user.due_date} */}
                           </div>
                          <div style={{display:"flex", justifyContent:"center"}}> <div style={{width:"100px", height:"110px",backgroundColor:"white", border:"2px solid grey" }}>
-                           <div style={{width:"97px", height:"30px", backgroundColor:"#e53935", textAlign:"center"}}>{moment(this.state.user.due_date).format('MMMM')}</div>
+                           <div style={{width:"97px", height:"30px",color:"white", backgroundColor:"#e53935", textAlign:"center"}}>{moment(this.state.user.due_date).format('MMMM')}</div>
                            <div style={{textAlign:"center"}}>{moment(this.state.user.due_date).date()}</div>
                            <div style={{textAlign:"center"}}>{moment(this.state.user.due_date).format('dddd')}</div>
                            <div style={{textAlign:"center"}}>{moment(this.state.user.due_date).year()}</div>
@@ -350,7 +347,7 @@ class Profile extends Component {
                       style={{ height: "100%" }}
                     />
                   </div>
-                  <div className="col-md-8">
+                  <div className="col-md-8 col-lg-8">
                     <div className="card-body">
                     <Link to={`/user/inthewombs/week/${this.state.week.womb_week}`}><h5
                         className="card-title flip-name"
@@ -378,7 +375,7 @@ class Profile extends Component {
               </div>
             </div>
           </div>
-        </div>
+        
       </div>
     );
   }

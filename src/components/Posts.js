@@ -10,6 +10,7 @@ class Posts extends Component {
     super(props);
     this.state = {
       user: this.props.user,
+      posts:this.props.posts,
       body:'',
       img_url:'',
       today: moment(new Date()).format('ll'),
@@ -22,9 +23,18 @@ class Posts extends Component {
   }
   componentDidMount=()=>{
     // this.setState({posts:this.props.user.post})
-    this.getPosts()
+    // this.getPosts()
+    
   }
-  
+  componentDidUpdate(prevProps) {
+    // Typical usage (don't forget to compare props):
+    if (this.props.posts !== prevProps.posts) {
+      this.setState({posts:this.props.posts});
+    }
+  }
+
+
+
   handlePost = async e => {
     e.preventDefault();
     let newpost={
@@ -42,35 +52,35 @@ class Posts extends Component {
     const data= await response.json()
       if(data.status === 200){
         this.setState({
-          posts:data.post_body,
           body:'',
           img_url:''
         })
         this.props.fetch()
+        
       }
       if (data.status !== 200)
         return alert("There is something wrong")
   }
 
 
-  getPosts= async ()=>{
-    const response = await fetch(`${process.env.REACT_APP_API}posts`, {
-      method: "GET",
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Token ${this.props.token}`
-      },
-    });
-    const data= await response.json()
-    if(data.status!==200){
-alert('get POSTS fail')
+//   getPosts= async ()=>{
+//     const response = await fetch(`${process.env.REACT_APP_API}posts`, {
+//       method: "GET",
+//       headers: {
+//         'Content-Type': 'application/json',
+//         'Authorization': `Token ${this.props.token}`
+//       },
+//     });
+//     const data= await response.json()
+//     if(data.status!==200){
+// alert('get POSTS fail')
 
-    } else if (data.status===200){
-      this.setState({
-           posts:data.posts
-        })
-    }
-  }
+//     } else if (data.status===200){
+//       this.setState({
+//            posts:data.posts
+//         })
+//     }
+//   }
 
   handleChange = e => {
     const name = e.target.name;
@@ -80,7 +90,8 @@ alert('get POSTS fail')
     });
   };
   render() {
-      console.log('posts', this.state.today)
+      console.log('posts in posts', this.state.posts)
+      console.log('posts in posts', this.props.posts)
     return (
       <div className="body-profile">
         <div
@@ -196,7 +207,7 @@ alert('get POSTS fail')
               </p>
             </div>
             {this.state.posts && this.state.posts.map((item, key) =>
-    <Post key={item.id} user={this.state.user} post={item} comments={item.comments} token={this.props.token} />
+    <Post key={item.id} user={this.state.user} post={item} comments={item.comments} token={this.props.token} fetch={this.props.fetch}/>
 )}
         
           </div>

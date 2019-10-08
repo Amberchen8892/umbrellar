@@ -23,17 +23,7 @@ const dateTime = require('date-time');
 class User extends Component {
   constructor(props) {
     super(props);
-    // const existingToken = localStorage.getItem("token");
-    // const accessToken =
-    //   window.location.search.split("=")[0] === "?api_key"
-    //     ? window.location.search.split("=")[1]
-    //     : null;
-    // if (accessToken) {
-    //   localStorage.setItem("token", accessToken);
-    // }
-    // this.state={
-    //   token: existingToken || accessToken
-    // }
+    
     if(!this.props.token){
         window.location.replace(
             `${process.env.REACT_APP_FRONT_URL}/login`
@@ -118,12 +108,13 @@ class User extends Component {
       data.user.countweeks = this.getWeek(data.user.last_period,'week')
       this.setState({
            loaded:true,
-            user:data.user
+            user:data.user,
+            posts: data.user.post
         })
     }
   }
   render() {
-    console.log("phuong and quyen", this.state.user.countweeks)
+    console.log("phuong and quyen", this.state.posts)
     
 
     if(!this.state.loaded) return <div className="loading">
@@ -141,7 +132,8 @@ class User extends Component {
             <Switch>
             <Route exact path="/user/update" render={(props)=><Update token={this.state.token} user={this.state.user} {...props}/>}  />
             <Route exact path="/user/profile" render={(props)=><Profile token={this.state.token} user={this.state.user} {...props}/>}  />
-            <Route exact path="/user/posts" render={(props)=><Posts  posts = {this.state.user.post} token={this.state.token} user={this.state.user} fetch={this.checkToken} {...props}/>}  />
+            <Route exact path="/user/posts" render={(props)=><Posts  posts = {this.state.posts} token={this.state.token} user={this.state.user} fetch={this.checkToken} {...props}/>}  />
+            {/* nho71 su73a them */}
             <Route exact path="/user/community" render={(props)=><Community  token={this.state.token} user={this.state.user} {...props}/>}  />
             <Route path="/user/byweek" render={(props)=><Byweek  token={this.state.token} user={this.state.user} {...props}/>}  />
             <Route path="/user/babies" render={(props)=><Babies  token={this.state.token} user={this.state.user} {...props}/>}  />

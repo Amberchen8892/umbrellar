@@ -38,9 +38,11 @@ class Post extends Component {
       }
     );
     const data = await response.json();
-    if (data.status === 200)
-      return window.location.replace(`${process.env.REACT_APP_FRONT_URL}/user/posts`);
-    if (data.status !== 200) return alert("There is something wrong");
+    if (data.status === 200){
+      this.props.fetch()
+    }
+      // return window.location.replace(`${process.env.REACT_APP_FRONT_URL}/user/posts`);
+    else alert("There is something wrong");
   };
 
   handleEdit = async e => {
@@ -62,7 +64,7 @@ class Post extends Component {
     );
     const data = await response.json();
     if (data.status === 200)
-      return window.location.replace(`${process.env.REACT_APP_FRONT_URL}/user/posts`);
+      return window.location.replace(`${process.env.REACT_APP_FRONT_URL}/user/posts`)
     if (data.status !== 200) return alert("There is something wrong");
   };
 
