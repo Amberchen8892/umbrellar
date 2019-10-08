@@ -216,3 +216,45 @@ body{
   background-color: rgba(226, 178, 210, 0.5);
   width: 60vw;
 }
+
+.edit_hover_class a{
+  visibility:hidden;
+}
+.edit_hover_class:hover a{
+ visibility:visible;
+}
+.container-icon{
+  position: relative;
+  display: inline-block;
+}
+.dropdown {
+  position: absolute;
+  top: 50%;
+  left: 0px;
+  width:100px;
+  z-index: 2;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14);
+  background-color: white
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+li {
+  padding: 5px
+}
+
+li:hover {
+  background-color: rgba(241, 155, 74, 0.14);
+  cursor: pointer;
+}
+
+.loading{
+  width: 100vw;
+  height: 100vh;
+  background-image: url('/images/comming.jpeg');
+  
+}

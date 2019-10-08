@@ -43,7 +43,8 @@ getArticles= async ()=>{
 
         <Switch>{this.state.babies && 
         this.state.babies.map((el,idx)=> 
-            <Route  path={`/user/babies/week/${idx+1}`} exact={true} component={(props)=><Baby baby={el} token={this.state.token} user={this.state.user} {...props}/>}  />
+            <Route  path={`/user/babies/week/${el.week}`} exact={true} component={(props)=><Baby baby={el} token={this.state.token} user={this.state.user} {...props}/>}  />
+            // <Route  path={`/user/babies/week/${idx+2}`} exact={true} component={(props)=><Baby baby={el} token={this.state.token} user={this.state.user} {...props}/>}  />
 
         )
         }

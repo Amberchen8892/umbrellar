@@ -21,7 +21,7 @@ class Subar_baby extends Component {
                     </div>
                     <div className="col-md-8">
                       <div className="card-body">
-                        <h5 className="card-title" style={{color:"#ef6c00"}}><Link to={`/user/babies/week/${item.week}`}>{ReactHtmlParser(item.name)}</Link></h5>
+                        <h5 className="card-title" style={{color:"#ef6c00"}}><Link to={`/user/babies/week/${item.week}`}>{item.name}</Link></h5>
                       </div>
                     </div>
                   </div>

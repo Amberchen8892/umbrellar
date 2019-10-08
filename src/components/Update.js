@@ -6,6 +6,12 @@ import  moment from 'moment'
 class Update extends Component {
     constructor(props) {
         super(props);
+        if (this.props.user.last_period === null){
+          this.props.user.last_period= new Date()
+        }
+        else this.props.user.last_period= new Date(this.props.user.last_period)
+
+
         this.state = {  
             username:this.props.user.username,
             email: this.props.user.email,
@@ -13,7 +19,8 @@ class Update extends Component {
             lastname:this.props.user.laststname,
             profile_url:this.props.user.profile_url,
             cover_url:this.props.user.cover_url,
-            last_period: new Date()
+            last_period: this.props.user.last_period,
+            due_date:this.props.user.due_date
         }
     }
     
@@ -29,6 +36,7 @@ class Update extends Component {
             username:this.state.username,
             profile_url:this.state.profile_url,
             cover_url:this.state.cover_url,
+            due_date: moment(new Date(new Date(this.state.last_period).setDate(new Date(this.state.last_period).getDate() + 277))).format('L')
             
         };
         
@@ -64,7 +72,9 @@ class Update extends Component {
     render() { 
       console.log("anh kjhoa",this.props.user.last_period)
       console.log("anh kjhoa",this.props.user.lastname)
-      console.log("phuong")
+      console.log("phuong thu 2", this.props.user)
+      console.log("check lastname", this.state.lastname)
+      console.log("check due date", this.state.due_date)
         return (  
             <div className="container update-css ">
               
@@ -152,7 +162,7 @@ class Update extends Component {
                 <input
                   type="text"
                   value={this.state.cover_url}
-                  name="profile_url"
+                  name="cover_url"
                   className="form-control"
                   
                   placeholder="Enter your image url"

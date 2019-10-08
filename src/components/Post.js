@@ -78,41 +78,60 @@ class Post extends Component {
 
 
   render() {
+    
     return (
       <div className="container-post" style={{ marginTop: "50px" }}>
         <div className="card text-center" style={{marginBottom:"20px"}}>
-          <div className="card-header" style={{display:'flex'}}>
-            <img src={this.state.user.profile_url} style={{width:"32px", height:"32px", borderRadius:"50%", marginRight:"10px"}} />
-            <h5 style={{color:"#2196f3"}}>{this.state.user.username}</h5>
+          <div className="card-header" style={{backgroundColor:"#b3e5fc"}}>
+            <div className="row">
+              <div className="col-md-2" style={{ display:"flex", justifyContent:"center",alignItems:"center"}}>
+              <div style={{ display:"flex", justifyContent:"center",alignItems:"center"}}>
+              <img src={this.state.user.profile_url} style={{width:"50px", height:"50px", borderRadius:"50%", marginRight:"10px"}} />
+              </div>
+              </div>
+              <div className="col-md-4" style={{marginLeft:"-20px"}}>
+                <div style={{marginLeft:"-95px"}}>
+                <div style={{marginTop:"10px", marginBottom:"-5px"}}>
+                <h6 style={{color:"#2196f3", fontSize:"16px"}}>{this.state.user.username}</h6>
+                </div>
+                <div style={{fontSize:"12px"}}><p >{moment(this.state.post.created).format('ll')}</p></div>
+                {/* <div><p>{moment(this.state.post.created).startOf('hour').fromNow()} </p></div> */}
+                </div>
+                
+              </div>
+            </div>
+            
+            
+            
           </div>
           <div className="card-body">
-            <h5 className="card-title">Special title treatment</h5>
-            <p className="card-text">{this.state.post.body}</p>
+            
+            <p className="card-text" style={{color:"#311b92",fontFamily: `'Playfair Display',serif`}}>{this.state.post.body}</p>
             <div>
-              <button
-                type="submit"
-                className="btn btn-primary"
-                onClick={e => this.deletePost(e)}
-              >
-                Delete
-              </button>
-              {/* <button type="submit" className="btn btn-primary">
-                Comment
-              </button> */}
-              <button
-                type="submit"
-                className="btn btn-primary"
-                data-toggle="modal"
-                data-target="#exampleModalCenter"
-              >
-                Edit
-              </button>
+              
+              
             </div>
           </div>
-          <div className="card-footer text-muted" style={{display:'flex', height:"40px"}}>
-            <img src="/images/calendar.png" style={{width:"20px", height:"20px", marginRight:"10px"}}/>
-            <p>{moment(this.state.post.created).format('ll')}</p>
+          <div className="card-footer text-muted" style={{display:'flex', height:"40px", alignItems:"center", backgroundColor:"#b3e5fc"}}>
+            <div className="row" style={{width:"100%"}}>
+              <div className="col-6 col-md-6" style={{display:"flex", alignItems:"cengter", marginTop:"10px"}}>
+              {this.state.post.updated && (
+              <p style={{fontSize:"12px"}}>Updated on:{moment(this.state.post.updated).format('ll')}</p>
+            )}
+              </div>
+              <div className="col-6 col-md-6"style={{display:"flex",justifyContent:"flex-end", alignItems:"center", marginTop:"5px"}} >
+                <span><a data-toggle="modal" data-target="#exampleModalCenter"><i class="far fa-edit"></i></a></span>
+                <span style={{marginLeft:"10px"}}><a onClick={e => this.deletePost(e)}><i class="far fa-trash-alt"></i></a></span>
+              </div>
+              
+            </div>
+           
+           
           </div>
+          {this.state.post.img_url && (
+              <img style={{width:"40rem", height:"200px"}} src={this.state.post.img_url} class="card-img-top" alt="..."/>
+          )}
+        
 
           <div className="card-body">
             <Comments 

@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import moment from "moment";
+
 import Post from "./Post"
+const dateTime = require("date-time");
 
 
 class Posts extends Component {
@@ -9,7 +11,9 @@ class Posts extends Component {
     this.state = {
       user: this.props.user,
       body:'',
-      today: moment(new Date()).format('ll')
+      img_url:'',
+      today: moment(new Date()).format('ll'),
+      countdown:moment(this.props.user.due_date).diff(moment().format('L'), 'days')
       
       
       
@@ -24,7 +28,8 @@ class Posts extends Component {
   handlePost = async e => {
     e.preventDefault();
     let newpost={
-      body:this.state.body
+      body:this.state.body,
+      img_url:this.state.img_url
     };
     const response = await fetch(`${process.env.REACT_APP_API}create_posts`, {
       method: "POST",
@@ -38,11 +43,11 @@ class Posts extends Component {
       if(data.status === 200){
         this.setState({
           posts:data.post_body,
-          body:''
+          body:'',
+          img_url:''
         })
         this.props.fetch()
       }
-        // return window.location.replace('process.env.REACT_APP_FRONT_URL/user/posts/?id=${id}')
       if (data.status !== 200)
         return alert("There is something wrong")
   }
@@ -88,26 +93,77 @@ alert('get POSTS fail')
             class=".col-6 .col-md-4"
             style={{ marginLeft: "30px", marginTop: "20px" }}
           >
-            <div className="card" style={{ width: "18rem" }}>
-              <img
-                src={this.state.user.cover_url}
-                className="card-img-top"
-                alt="..."
-                style={{ height: "15rem" }}
-              />
-              <div className="card-body">
-                <h4 className="card-title" style={{fontFamily: `'Raleway',serif`, color:"#0091ea"}}> {this.state.user.remaining <= 3 ? "1st trimester" : (this.state.user.remaining <= 6? "2nd trimester" : "3rd trimester") } </h4>
-                <h5 className="card-title" style={{fontFamily: `'PT Serif',serif`, color:"#ff8f00"}}>{this.state.user.weeks}</h5>
-                <p className="card-text">
-                  Some quick example text to build on the card title and make up
-                  the bulk of the card's content.
-                </p>
-                <a href="#" className="btn btn-primary">
-                  Go somewhere
-                </a>
+              <div className="card" style={{ width: "25rem" }}>
+                  <img
+                    src={this.state.user.cover_url}
+                    className="card-img-top"
+                    alt="..."
+                    style={{ height: "15rem" }}
+                  />
+                  <div className="card-body">
+                    <div style={{textAlign:"center"}}>
+                    <h4
+                      className="card-title"
+                      style={{
+                        fontFamily: `'Raleway',serif`,
+                        color: "#0091ea"
+                      }}
+                    >
+                      {this.state.user.remaining <= 12
+                        ? "1st trimester"
+                        : 13 <= this.state.user.remaining <= 26
+                        ? "2nd trimester"
+                        : "3rd trimester"}{" "}
+                    </h4>
+                    <h5
+                      className="card-title"
+                      style={{
+                        fontFamily: `'PT Serif',serif`,
+                        color: "#ff8f00"
+                      }}
+                    >
+                      {this.state.user.weeks}
+                    </h5>
+                    </div>
+                    
+                    <div class="row">
+                      <div class="col-6">
+                        <div class="flex-container">
+                          <div style={{ textAlign: "center" }}>
+                            Countdown to Mickey
+                          </div>
+                          <div style={{ textAlign: "center" }}>
+                            <div class="row justify-content-center">
+                              <div class="col-sm-4"><div style={{width:"50px", height:"50px", backgroundColor:"#1de9b6", borderRadius:"10px", textAlign:"center", display:"flex", justifyContent:"center", alignItems:"center"}} ><div style={{fontSize:"30px",color:"white", fontWeight:"bold"}}>{parseInt(this.state.countdown / 7)}</div></div></div>
+                              <div class="col-sm-4"><div style={{width:"50px", height:"50px", backgroundColor:"#1de9b6",borderRadius:"10px", textAlign:"center", display:"flex", justifyContent:"center", alignItems:"center"}}><div style={{fontSize:"30px",color:"white", fontWeight:"bold"}}>{this.state.countdown % 7}</div> </div></div>
+                            </div>
+                            <div class="row justify-content-center">
+                              <div class="col-6">week(s)</div>
+                              <div class="col-6">day(s)</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-6">
+                        <div class="flex-container">
+                          <div style={{ textAlign: "center" }}>
+                            Estimated due date
+                          </div>
+                          <div style={{ textAlign: "center" }}>
+                            {/* {this.state.user.due_date} */}
+                          </div>
+                         <div style={{display:"flex", justifyContent:"center"}}> <div style={{width:"100px", height:"110px",backgroundColor:"white", border:"2px solid grey" }}>
+                           <div style={{width:"97px", height:"30px", backgroundColor:"#e53935", textAlign:"center"}}>{moment(this.state.user.due_date).format('MMMM')}</div>
+                           <div style={{textAlign:"center"}}>{moment(this.state.user.due_date).date()}</div>
+                           <div style={{textAlign:"center"}}>{moment(this.state.user.due_date).format('dddd')}</div>
+                           <div style={{textAlign:"center"}}>{moment(this.state.user.due_date).year()}</div>
+                           </div></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
           <div
             class=".col-6 .col-md-4"
             style={{ marginLeft: "20px", marginTop: "20px" }}
@@ -128,8 +184,10 @@ alert('get POSTS fail')
                   </div>
                   <hr className="my-4" />
                   <input className="form-control textform" id="exampleFormControlTextarea1"name="body" placeholder="what's on your mind?"rows="4" value={this.state.body} style={{color:"#00b0ff"}} />
+                  <input className="form-control textform" id="exampleFormControlTextarea1"name="img_url" placeholder="Wanna share your picture?"rows="4" value={this.state.img_url} style={{color:"#00b0ff", marginTop:"30px"}} />
                   
                 </div>
+                <div style={{display:'flex', justifyContent:"center", alignItems:"center"}}><button onClick={e => this.handlePost(e)} style={{backgroundColor:"#673ab7", width:"60px", height:"30px",borderRadius:"10px", color:"white"}}>Post</button></div>
                 
               </form>
               <hr className="my-4" />

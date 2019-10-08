@@ -16,7 +16,6 @@ import Signup from "./pages/signup";
 import Login from "./pages/login";
 import User from "./components/User";
 
-const hello = process.env.REACT_APP_FRONT_URL
 const theme = createMuiTheme({
   palette: {
     primary: {
@@ -51,6 +50,7 @@ class App extends Component {
     //     `process.env.REACT_APP_FRONT_URL/login`
     //   );
     // }
+
     if (accessToken) {
       localStorage.setItem("token", accessToken);
     }
@@ -60,7 +60,6 @@ class App extends Component {
   }
 
   render() {
-    console.log('helo',hello)
     return (
       <ThemeProvider theme={theme}>
         <div className="App">

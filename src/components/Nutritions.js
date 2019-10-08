@@ -43,7 +43,7 @@ getArticles= async ()=>{
 
         <Switch>{this.state.nutris && 
         this.state.nutris.map((el,idx)=> 
-            <Route  path={`/user/nutritions/week/${idx+1}`} exact={true} component={(props)=><Nutrition nutri={el} token={this.state.token} user={this.state.user} {...props}/>}  />
+            <Route  path={`/user/nutritions/week/${el.week}`} exact={true} component={(props)=><Nutrition nutri={el} token={this.state.token} user={this.state.user} {...props}/>}  />
 
         )
         }

@@ -23,14 +23,26 @@ const dateTime = require('date-time');
 class User extends Component {
   constructor(props) {
     super(props);
+    // const existingToken = localStorage.getItem("token");
+    // const accessToken =
+    //   window.location.search.split("=")[0] === "?api_key"
+    //     ? window.location.search.split("=")[1]
+    //     : null;
+    // if (accessToken) {
+    //   localStorage.setItem("token", accessToken);
+    // }
+    // this.state={
+    //   token: existingToken || accessToken
+    // }
     if(!this.props.token){
         window.location.replace(
-            `process.env.REACT_APP_FRONT_URL/login`
+            `${process.env.REACT_APP_FRONT_URL}/login`
           );
     }
     
 
     this.state = {
+      // token: existingToken || accessToken,
         token:this.props.token,
         loaded:false,
         user:{}
@@ -53,6 +65,7 @@ class User extends Component {
     return parseInt(diffDays/7)+' week(s)'+' '+diffDays%7+' day(s)'
     
     
+    
   }
   getWeek = (a,q)=>{
     const date1 = new Date(a);
@@ -68,13 +81,23 @@ class User extends Component {
     
     
   }
+  
+
+
   getMonth = (a,q)=>{
     const date1 = new Date(a);
     const date2 = new Date(moment(dateTime()).format('L'))
-    const result = datetimeDifference(date1, date2);
-    if(q==='month')
-    return result.months
+    const diffTime = Math.abs(date2 - date1);
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+    console.log(diffDays);
+    
+    
+    if(q==='month') 
+    return parseInt(diffDays/7)
+    
+    
   }
+
   checkToken= async ()=>{
     const response = await fetch(`${process.env.REACT_APP_API}users`, {
       method: "POST",
@@ -101,8 +124,12 @@ class User extends Component {
   }
   render() {
     console.log("phuong and quyen", this.state.user.countweeks)
+    
 
-    if(!this.state.loaded) return <div>Loading..... please wait</div>
+    if(!this.state.loaded) return <div className="loading">
+      <h5 style={{corlor:"#ef6c00"}}>Baby is loading.....</h5>
+
+    </div>
     return (
       <div style={{marginTop:"-20px"}}> 
         <div  >

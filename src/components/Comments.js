@@ -58,10 +58,23 @@ class Comments extends Component {
     console.log('anh hai', this.state.comments)
     return (
       <div>
-        <div style={{display:"flex"}}>
+        
+        
+        {this.state.comments &&
+          this.state.comments.map((item, key) => (
+            <Comment
+              item={item}
+              key={item.id}
+              body={item.body}
+              user={this.state.user}
+              token={this.props.token}
+            />
+          ))}
+
+<div style={{display:"flex"}}>
           <img
             src={this.state.user.profile_url}
-            style={{ width: "30px", height: "30px", borderRadius: "50%", marginRight:"20px" }}
+            style={{ width: "35px", height: "35px", borderRadius: "50%", marginRight:"20px" }}
           />
           <form
             
@@ -69,22 +82,15 @@ class Comments extends Component {
             onChange={e => this.handleChange(e)}
           >
             <input
-              style={{ borderRadius: "10px" }}
+              type="text"
+              style={{ borderRadius: "10px", width:"500px" , height: "40px"}}
               name="body"
               value={this.state.body}
+              placeholder="write your comment"
               
             />
           </form>
         </div>
-        {this.state.comments &&
-          this.state.comments.map((item, key) => (
-            <Comment
-              item={item}
-              key={item.id}
-              user={this.state.user}
-              token={this.props.token}
-            />
-          ))}
       </div>
     );
   }
