@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import datetimeDifference from "datetime-difference";
 import moment from "moment";
 import ReactHtmlParser from "react-html-parser";
+import Link from 'react-router-dom/Link';
 const dateTime = require("date-time");
+
 
 // const html = `<div class="red"><p><strong>Instead of:</strong>Large fish high in mercury, like tuna, sea bass and swordfish</p><p><strong>Choose:</strong>Smaller fish that are lower in mercury, like salmon, shrimp, freshwater trout, Atlantic haddock, sardines, crab, scallops and tilapia.Even though fish is healthy, large sized fish are higher in mercury and may be harmful to a developing baby’s’ brain and nervous system. Smaller fish have less mercury and are a better choice. Eat 2-3 servings of low-mercury fish per week and try to eat a variety of different types.</p></div>`;
 // <div>{ReactHtmlParser(html)}</div>
@@ -112,7 +114,7 @@ class Profile extends Component {
                               <div class="col-sm-4"><div style={{width:"50px", height:"50px", backgroundColor:"#1de9b6",borderRadius:"10px", textAlign:"center", display:"flex", justifyContent:"center", alignItems:"center"}}><div style={{fontSize:"30px",color:"white", fontWeight:"bold"}}>{this.state.countdown % 7}</div> </div></div>
                             </div>
                             <div class="row justify-content-center">
-                              <div class="col-sm-6">week(s)</div>
+                              <div class="col-sm-6" style={{marginRight:"-35px"}}>week(s)</div>
                               <div class="col-sm-6">day(s)</div>
                             </div>
                           </div>
@@ -284,9 +286,9 @@ class Profile extends Component {
                   </div>
                   <div className="col-md-8">
                     <div className="card-body ">
-                      <h5 className="card-title" style={{ color: "#2196f3" }}>
+                      <Link to={`/user/byweek/week/${this.state.week.womb_week}`}><h5 className="card-title" style={{ color: "#2196f3" }}>
                         {this.state.week.week}
-                      </h5>
+                      </h5></Link>
                       <p
                         className="card-text"
                         style={{ fontFamily: `'PT Serif',serif` }}
@@ -317,9 +319,9 @@ class Profile extends Component {
                   </div>
                   <div className="col-md-8">
                     <div className="card-body">
-                      <h5 className="card-title" style={{ color: "#ff4081" }}>
+                    <Link to={`/user/nutritions/week/${this.state.week.womb_week}`}><h5 className="card-title" style={{ color: "#ff4081" }}>
                         {ReactHtmlParser(html)}
-                      </h5>
+                      </h5></Link>
                       <p
                         className="card-text"
                         style={{ fontFamily: `'PT Serif',serif` }}
@@ -350,7 +352,7 @@ class Profile extends Component {
                   </div>
                   <div className="col-md-8">
                     <div className="card-body">
-                      <h5
+                    <Link to={`/user/inthewombs/week/${this.state.week.womb_week}`}><h5
                         className="card-title flip-name"
                         style={{
                           fontFamily: `'PT Serif',serif`,
@@ -358,7 +360,7 @@ class Profile extends Component {
                         }}
                       >
                         {ReactHtmlParser(html1)}
-                      </h5>
+                      </h5></Link>
                       <p
                         className="card-text"
                         style={{ fontFamily: `'PT Serif',serif` }}

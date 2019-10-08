@@ -19,8 +19,8 @@ class Footer extends Component {
                 <div className="col-6 col-md-4 box-1" style={{color:'white'}}>UMBRELLA</div>
                 <div className="col-6 col-md-4 box-2">
                     <ul>
-                        <li style={{color:'white'}}>
-                            <Link to='/about'>About</Link></li>
+                        <li style={{color:'white', textDecoration: "none"}}>
+                            <Link style={{color:'white', textDecoration: "none"}}to='/about'>About</Link></li>
                         <li style={{color:'white'}}>Careers</li>
                         <li style={{color:'white'}}>Contact</li>
                         <li style={{color:'white'}}>Careers</li>
