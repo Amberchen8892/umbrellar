@@ -34,11 +34,11 @@ getArticles= async ()=>{
             <div style={{marginTop:"50px"}}>
                 
                 <div className="row">
-                <div class="col-12 col-md-3">
+                <div class="col-12 col-md-3" style={{height:"85vh",overflowY:"scroll"}}>
                 <Subar_womb wombs={this.state.wombs} token={this.state.token} user={this.state.user} />
                 
                 </div>
-    <div class="col-6 col-md-9">
+    <div class="col-6 col-md-9" style={{height:"85vh",overflowY:"scroll"}}>
     
 
         <Switch>{this.state.wombs && 

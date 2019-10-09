@@ -34,17 +34,17 @@ getArticles= async ()=>{
             <div style={{marginTop:"50px"}}>
                 
                 <div className="row">
-                <div class="col-12 col-md-4">
+                <div class="col-12 col-md-4" style={{height:"90vh",overflowY:"scroll"}}>
                 <Subar_baby babies={this.state.babies} token={this.state.token} user={this.state.user} />
                 
                 </div>
-    <div class="col-6 col-md-8">
+    <div class="col-6 col-md-8" style={{height:"90vh",overflowY:"scroll"}}>
     
 
         <Switch>{this.state.babies && 
         this.state.babies.map((el,idx)=> 
             <Route  path={`/user/babies/week/${el.week}`} exact={true} component={(props)=><Baby baby={el} token={this.state.token} user={this.state.user} {...props}/>}  />
-            // <Route  path={`/user/babies/week/${idx+2}`} exact={true} component={(props)=><Baby baby={el} token={this.state.token} user={this.state.user} {...props}/>}  />
+           
 
         )
         }

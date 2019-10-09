@@ -6,20 +6,23 @@ class Comment extends Component {
     super(props);
     this.state = {
       open: false,
-      
-
+      body:this.props.body
     };
     this.deleteComment = this.deleteComment.bind(this);
     this.editComment = this.editComment.bind(this);
   }
   componentDidMount() {
     document.addEventListener("mousedown", this.handleClickOutside);
-    // this.setState({body:this.props.body})
   }
   componentWillUnmount() {
     document.removeEventListener("mousedown", this.handleClickOutside);
   }
-
+  componentDidUpdate(prevProps) {
+    // Typical usage (don't forget to compare props):
+    if (this.props.item !== prevProps.item) {
+      this.setState({item:this.props.item});
+    }
+  }
   handleClickOutside = event => {
     // event.preventDefault()
     if (this.container.current && !this.container.current.contains(event.target)) {
@@ -62,7 +65,7 @@ class Comment extends Component {
     );
     const data = await response.json();
     if (data.status === 200)
-      return window.location.replace(`${process.env.REACT_APP_FRONT_URL}/user/posts`);
+      this.props.fetch()
     if (data.status !== 200) return alert("There is something wrong");
   }
   
@@ -99,11 +102,9 @@ class Comment extends Component {
   };
 
   render() {
-    // console.log("if comment in single comment", this.props.item);
-
-
-    console.log("check body", this.props.item.body)
-    // console.log("check body", this.state.item.body)
+    console.log("if comment in single comment", this.props.item.body);
+    console.log("check body", this.state.body)
+    console.log(this.props.id)
     return (
       <div style={{ display: "flex" }}>
         <p style={{ marginRight: "20px" }}>{this.props.item.author}</p>
@@ -127,9 +128,9 @@ class Comment extends Component {
                   <li  ><a style={{display:"flex"}} onClick={this.deleteComment}><span style={{color:"tomato"}}><i class="far fa-trash-alt"></i></span><p style={{marginLeft: "10px", size:"16px", color:"#ff6d00"}}>Delete</p></a></li>
                   <li  ><a 
                             data-toggle="modal"
-                            data-target="#exampleModal"
+                            data-target={`#exampleModal${this.props.id}`}
                             style={{display:"flex"}} 
-                            onClick={this.editComment}><span style={{color:"tomato"}}><i class="far fa-edit"></i></span><p style={{marginLeft: "10px", size:"16px", color:"#ff6d00"}}>Edit</p></a></li>
+                            ><span style={{color:"tomato"}}><i class="far fa-edit"></i></span><p style={{marginLeft: "10px", size:"16px", color:"#ff6d00"}}>Edit</p></a></li>
                 </ul>  :
                 <ul>
                 
@@ -146,10 +147,10 @@ class Comment extends Component {
 
         <div
           className="modal fade"
-          id="exampleModal"
+          id={`exampleModal${this.props.id}`}
           tabIndex={-1}
           role="dialog"
-          aria-labelledby="exampleModal"
+          aria-labelledby={`exampleModal${this.props.id}`}
           aria-hidden="true"
         >
           <div className="modal-dialog modal-dialog-centered" role="document">

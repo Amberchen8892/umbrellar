@@ -1,25 +1,27 @@
 import React, { Component } from "react";
 import {Link } from 'react-router-dom';
-class Subbar extends Component {
+import ReactHtmlParser from "react-html-parser";
+class Subar_loss extends Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
   render() {
+    console.log('im fired')
     return (
       <div>
-        {this.props.by_week &&
-          this.props.by_week.map((item, key) => (
+        {this.props.losses &&
+          this.props.losses.map((item, key) => (
             
-              
+            
                 <div className="card mb-3" style={{ maxWidth: "540px", border:"none"}}>
                   <div className="row no-gutters">
                     <div className="col-md-4">
-                      <img src={item.img_url} className="card-img" alt="..." />
+                      <img src={item.img_url} className="card-img" alt="..."  style={{ width: "100%", height: "100%" }}/>
                     </div>
                     <div className="col-md-8">
                       <div className="card-body">
-                        <h5 className="card-title"><Link style={{color:"#f06292"}}to={`/user/byweek/week/${item.week}`}>{item.name}</Link></h5>
+                        <h5 className="card-title" style={{color:"#ef6c00"}}><Link style={{color:"#795548"}} to={`/user/losses/${item.week}`}>{ReactHtmlParser(item.name)}</Link></h5>
                       </div>
                     </div>
                   </div>
@@ -27,10 +29,13 @@ class Subbar extends Component {
                 
               
             </div>
+            
           ))}
       </div>
+
+     
     );
   }
 }
 
-export default Subbar;
+export default Subar_loss;

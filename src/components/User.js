@@ -10,6 +10,8 @@ import Byweek from "./Byweek";
 import Babies from "./Babies";
 import Nutritions from "./Nutritions";
 import Wombs from "./Wombs";
+import Symptoms from "./Symptoms";
+import Losses from "./Losses";
 
 import datetimeDifference from "datetime-difference";
 import moment from 'moment'
@@ -114,7 +116,7 @@ class User extends Component {
     }
   }
   render() {
-    console.log("phuong and quyen", this.state.posts)
+    console.log("phuong and quyen", this.state.user)
     
 
     if(!this.state.loaded) return <div className="loading">
@@ -139,6 +141,8 @@ class User extends Component {
             <Route path="/user/babies" render={(props)=><Babies  token={this.state.token} user={this.state.user} {...props}/>}  />
             <Route path="/user/nutritions" render={(props)=><Nutritions  token={this.state.token} user={this.state.user} {...props}/>}  />
             <Route path="/user/inthewombs" render={(props)=><Wombs token={this.state.token} user={this.state.user} {...props}/>}  />
+            <Route path="/user/symptoms" render={(props)=><Symptoms token={this.state.token} user={this.state.user} {...props}/>}  />
+            <Route path="/user/losses" render={(props)=><Losses token={this.state.token} user={this.state.user} {...props}/>}  />
             </Switch>
           </div>
           </div>

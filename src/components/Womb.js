@@ -19,11 +19,11 @@ class  Womb extends Component {
         
         return (
             <div>
-                 <div className="jumbotron" style={{textAlign:"center"}}>
+                 <div className="jumbotron" style={{textAlign:"center", backgroundColor:"#fbe9e7"}}>
         <img  src={this.state.womb.img_url} style={{maxWidth:"70vw", maxHeight:"70vh", marginBottom:"20px"}}/>
-        <h1 className="display-4" style={{fontFamily: `'Bitter',serif`,color:"#ef6c00", marginBottom:"20px"}}>{ReactHtmlParser(this.state.womb.name)}</h1>
+        <h1 className="display-4" style={{fontFamily: `'Pacifico',serif`,color:"#ef6c00", marginBottom:"20px"}}>{ReactHtmlParser(this.state.womb.name)}</h1>
       
-        <p className="lead">{ReactHtmlParser(this.state.womb.intro)}</p>
+        <p className="lead" style={{fontFamily: `'Lusitana',serif`}}>{ReactHtmlParser(this.state.womb.intro)}</p>
         <hr className="my-4" />
         <p>Review by :<h6>Dr. Jamie Lo</h6></p>
         

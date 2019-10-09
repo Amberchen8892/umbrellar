@@ -32,13 +32,13 @@ getArticles= async ()=>{
         console.log("check data",this.state.by_weeks)
         console.log("check token",this.props.token)
         return ( 
-            <div style={{marginTop:"50px"}}>
+            <div style={{ padding:"10px"}}>
                 
                 <div className="row">
-                <div class="col-12 col-md-4">
+                <div class="col-12 col-md-4" style={{height:"90vh",overflowY:"scroll"}}>
                 <Subbar by_week={this.state.by_weeks} token={this.state.token} user={this.state.user} />
                 </div>
-    <div class="col-6 col-md-8">
+    <div class="col-6 col-md-8" style={{height:"85vh",overflowY:"scroll"}}>
     
 
         <Switch>{this.state.by_weeks && 

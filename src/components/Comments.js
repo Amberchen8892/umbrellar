@@ -8,12 +8,19 @@ class Comments extends Component {
       post: this.props.post,
       user: this.props.user,
       body: "",
-
+      comments: this.props.comments
     };
   }
   componentDidMount = () => {
-    this.setState({ comments: this.props.comments });
+
   };
+
+   componentDidUpdate(prevProps) {
+    // Typical usage (don't forget to compare props):
+    if (this.props.post !== prevProps.post) {
+      this.setState({post:this.props.post});
+    }
+  }
 
   handleComment = async e => {
     e.preventDefault();
@@ -40,11 +47,12 @@ class Comments extends Component {
         {
           comments: data.comments,
           body: ""
-        },
-        () => this.props.data({ comments: this.state.comments })
-      );
+        })
+        this.props.fetch()
+      ;
     }
   };
+
   handleChange = e => {
     const name = e.target.name;
     const value = e.target.value;
@@ -52,22 +60,27 @@ class Comments extends Component {
       [name]: value
     });
   };
+
   render() {
     // if (this.state.comments) console.log("comments",this.state.comments);
     // need to know who will go first, redner go first state doesnt have will undifined
     console.log('anh hai', this.state.comments)
+    console.log('anh hai', this.props.comments)
     return (
       <div>
         
         
-        {this.state.comments &&
-          this.state.comments.map((item, key) => (
+        {this.props.comments.length > 0 &&
+          this.props.comments.map((item, key) => (
             <Comment
               item={item}
               key={item.id}
+              id={item.id}
+
               body={item.body}
               user={this.state.user}
               token={this.props.token}
+              fetch={this.props.fetch}
             />
           ))}
 

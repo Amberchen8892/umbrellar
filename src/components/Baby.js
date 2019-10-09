@@ -19,15 +19,17 @@ class  Week extends Component {
         
         return (
             <div>
-                 <div className="jumbotron" style={{textAlign:"center"}}>
-        <img  src={this.state.baby.img_url} style={{ marginBottom:"20px"}}/>
-        <h1 className="display-4" style={{fontFamily: `'Bitter',serif`,color:"#ef6c00", marginBottom:"20px"}}>{ReactHtmlParser(this.state.baby.name)}</h1>
+                 <div className="jumbotron" style={{backgroundColor:"#e1f5fe"}} >
+       <div style={{textAlign:"center"}}> <img  src={this.state.baby.img_url} style={{ maxWidth:"70vh", maxHeight:"50vh",marginBottom:"20px"}}/>
+       <h1 className="display-4" style={{fontFamily: `'Pacifico',serif`,color:"#03a9f4", marginBottom:"20px"}}>{ReactHtmlParser(this.state.baby.name)}</h1></div>
+        <div style={{textAlign:"left !important"}}>
+       
         
         
-        <p className="lead">{ReactHtmlParser(this.state.baby.body)}</p>
+        <p className="lead" style={{fontFamily: `'Lusitana',serif`}}>{ReactHtmlParser(this.state.baby.body)}</p>
         <hr className="my-4" />
         <p>Review by :<h6>Dr. Jamie Lo</h6></p>
-        
+        </div>
       </div>
                
 

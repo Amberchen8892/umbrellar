@@ -83,7 +83,7 @@ class Post extends Component {
     
     return (
       <div className="container-post" style={{ marginTop: "50px" }}>
-        <div className="card text-center" style={{marginBottom:"20px"}}>
+        <div className="card text-center shadow-lg" style={{marginBottom:"20px"}}>
           <div className="card-header" style={{backgroundColor:"#b3e5fc"}}>
             <div className="row">
               <div className="col-md-2" style={{ display:"flex", justifyContent:"center",alignItems:"center"}}>
@@ -139,9 +139,10 @@ class Post extends Component {
             <Comments 
             user={this.state.user} 
             token={this.props.token} 
-            post={this.state.post} 
-            comments={this.state.post.comments} 
-            data={this.getComment.bind(this)}/>
+            post={this.props.post} 
+            comments={this.props.post.comments} 
+            data={this.getComment.bind(this)}
+            fetch={this.props.fetch}/>
           
           </div>
         </div>

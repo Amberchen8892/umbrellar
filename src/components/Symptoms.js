@@ -1,19 +1,18 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Subar_nutrition from './Subar_nutrition'
-import Nutrition from './Nutrition'
-
-class Nutritions extends Component {
+import Subar_symptom from './Subar_symptom'
+import Symptom from './Symptom'
+class Symptoms extends Component {
     constructor(props) {
         super(props);
         this.state = {  }
     }
-componentDidMount=()=>{
-        this.getArticles()
+    componentDidMount=()=>{
+        this.getSymptoms()
 
     }
-getArticles= async ()=>{
-        const response = await fetch(`${process.env.REACT_APP_API}getnutri`, {
+    getSymptoms= async ()=>{
+        const response = await fetch(`${process.env.REACT_APP_API}getsymptoms`, {
             method: "POST",
             headers: {
               'Content-Type': 'application/json',
@@ -24,41 +23,33 @@ getArticles= async ()=>{
         if(data.status !==200) alert('cannot get data')
               else if (data.status===200){
                   this.setState({
-                       nutris:data.nutris
+                       symptoms:data.symptoms
                     })
                 }
     }
     render() { 
-       
         return ( 
             <div style={{marginTop:"50px"}}>
-                
                 <div className="row">
                 <div class="col-12 col-md-4" style={{height:"85vh",overflowY:"scroll"}}>
-                <Subar_nutrition nutris={this.state.nutris} token={this.state.token} user={this.state.user} />
+                <Subar_symptom symptoms={this.state.symptoms} token={this.state.token} user={this.state.user} />
                 
                 </div>
     <div class="col-6 col-md-8" style={{height:"85vh",overflowY:"scroll"}}>
     
 
-        <Switch>{this.state.nutris && 
-        this.state.nutris.map((el,idx)=> 
-            <Route  path={`/user/nutritions/week/${el.week}`} exact={true} component={(props)=><Nutrition nutri={el} token={this.state.token} user={this.state.user} {...props}/>}  />
+        <Switch>{this.state.symptoms && 
+        this.state.symptoms.map((el,idx)=> 
+            <Route  path={`/user/symptoms/${el.week}`} exact={true} component={(props)=><Symptom symptom={el} token={this.state.token} user={this.state.user} {...props}/>}  />
 
         )
         }
         </Switch>
         </div>
                 </div>
-                
-                 
-    
-        
-       
-           
             </div>
          );
     }
 }
-
-export default Nutritions;
+ 
+export default Symptoms;

@@ -104,7 +104,7 @@ class Posts extends Component {
             class=".col-6 .col-md-4"
             style={{ marginLeft: "30px", marginTop: "20px" }}
           >
-              <div className="card" style={{ width: "25rem" }}>
+              <div className="card shadow-lg" style={{ width: "25rem" }}>
                   <img
                     src={this.state.user.cover_url}
                     className="card-img-top"
@@ -149,8 +149,8 @@ class Posts extends Component {
                               <div class="col-sm-4"><div style={{width:"50px", height:"50px", backgroundColor:"#1de9b6",borderRadius:"10px", textAlign:"center", display:"flex", justifyContent:"center", alignItems:"center"}}><div style={{fontSize:"30px",color:"white", fontWeight:"bold"}}>{this.state.countdown % 7}</div> </div></div>
                             </div>
                             <div class="row justify-content-center">
-                              <div class="col-6">week(s)</div>
-                              <div class="col-6">day(s)</div>
+                              <div class="col-6" style={{marginRight:"-35px"}}>week(s)</div>
+                              <div class="col-6"style={{marginRight:"-10px"}}>day(s)</div>
                             </div>
                           </div>
                         </div>
@@ -164,7 +164,7 @@ class Posts extends Component {
                             {/* {this.state.user.due_date} */}
                           </div>
                          <div style={{display:"flex", justifyContent:"center"}}> <div style={{width:"100px", height:"110px",backgroundColor:"white", border:"2px solid grey" }}>
-                           <div style={{width:"97px", height:"30px", backgroundColor:"#e53935", textAlign:"center"}}>{moment(this.state.user.due_date).format('MMMM')}</div>
+                           <div style={{width:"97px", height:"30px", backgroundColor:"#2196f3", textAlign:"center", color:"white"}}>{moment(this.state.user.due_date).format('MMMM')}</div>
                            <div style={{textAlign:"center"}}>{moment(this.state.user.due_date).date()}</div>
                            <div style={{textAlign:"center"}}>{moment(this.state.user.due_date).format('dddd')}</div>
                            <div style={{textAlign:"center"}}>{moment(this.state.user.due_date).year()}</div>
@@ -179,7 +179,7 @@ class Posts extends Component {
             class=".col-6 .col-md-4"
             style={{ marginLeft: "20px", marginTop: "20px" }}
           >
-            <div className="jumbotron custome-jumbotron shadow-jumbo">
+            <div className="jumbotron custome-jumbotron shadow-jumbo shadow">
               <form
                 onSubmit={e => this.handlePost(e)}
                 onChange={e => this.handleChange(e)}
@@ -206,8 +206,9 @@ class Posts extends Component {
                 "I’m writing my story so that others might see fragments of themselves"
               </p>
             </div>
-            {this.state.posts && this.state.posts.map((item, key) =>
+            {this.state.posts && this.state.posts.map((item, key) => <div className='shadow'> 
     <Post key={item.id} user={this.state.user} post={item} comments={item.comments} token={this.props.token} fetch={this.props.fetch}/>
+    </div>
 )}
         
           </div>
@@ -215,10 +216,10 @@ class Posts extends Component {
             class=".col-6 .col-md-4"
             style={{ marginLeft: "20px", marginTop: "20px" }}
           >
-            <div className="card" style={{ width: "18rem", marginBottom:"30px" }}>
+            <div className="card shadow-lg" style={{ width: "18rem", marginBottom:"30px" }}>
               <img src="/images/advert5.jpg" className="card-img-top" alt="..." />
               <div className="card-body">
-                <h5 className="card-title">Card title</h5>
+                <h5 className="card-title">Car Seat</h5>
                 <p className="card-text">
                   Some quick example text to build on the card title and make up
                   the bulk of the card's content.
@@ -231,7 +232,7 @@ class Posts extends Component {
             <div className="card" style={{ width: "18rem", marginBottom:"30px" }}>
               <img src="/images/advert1.jpg" className="card-img-top" alt="..." />
               <div className="card-body">
-                <h5 className="card-title">Card title</h5>
+                <h5 className="card-title">Elephant Hooded Towel</h5>
                 <p className="card-text">
                   Some quick example text to build on the card title and make up
                   the bulk of the card's content.
@@ -244,7 +245,7 @@ class Posts extends Component {
             <div className="card" style={{ width: "18rem", marginBottom:"30px" }}>
               <img src="/images/advert2.jpg" className="card-img-top" alt="..." />
               <div className="card-body">
-                <h5 className="card-title">Card title</h5>
+                <h5 className="card-title">Burp Cloths</h5>
                 <p className="card-text">
                   Some quick example text to build on the card title and make up
                   the bulk of the card's content.
@@ -257,7 +258,7 @@ class Posts extends Component {
             <div className="card" style={{ width: "18rem", marginBottom:"30px" }}>
               <img src="/images/advert3.jpeg" className="card-img-top" alt="..." />
               <div className="card-body">
-                <h5 className="card-title">Card title</h5>
+                <h5 className="card-title">Pregnancy Pillow</h5>
                 <p className="card-text">
                   Some quick example text to build on the card title and make up
                   the bulk of the card's content.

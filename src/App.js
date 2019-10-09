@@ -1,6 +1,6 @@
 
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch , HashRouter} from "react-router-dom";
 import './App.css';
 //MUI
 import { createMuiTheme } from '@material-ui/core/styles';
