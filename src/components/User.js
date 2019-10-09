@@ -42,6 +42,7 @@ class User extends Component {
   }
   componentDidMount=()=>{
       this.checkToken()
+     
 
   }
   getDate = (a,q)=>{
@@ -115,6 +116,22 @@ class User extends Component {
         })
     }
   }
+//   getAllPosts= async ()=>{
+//     const response = await fetch(`${process.env.REACT_APP_API}posts`, {
+//         method: "POST",
+//         headers: {
+//           'Content-Type': 'application/json',
+//           'Authorization': `Token ${this.props.token}`
+//         },
+//       });
+//     const data= await response.json();
+//     if(data.status !==200) alert('cannot get data')
+//           else if (data.status===200){
+//               this.setState({
+//                    all_posts: data.posts
+//                 })
+//             }
+// }
   render() {
     console.log("phuong and quyen", this.state.user)
     
@@ -136,7 +153,7 @@ class User extends Component {
             <Route exact path="/user/profile" render={(props)=><Profile token={this.state.token} user={this.state.user} {...props}/>}  />
             <Route exact path="/user/posts" render={(props)=><Posts  posts = {this.state.posts} token={this.state.token} user={this.state.user} fetch={this.checkToken} {...props}/>}  />
             {/* nho71 su73a them */}
-            <Route exact path="/user/community" render={(props)=><Community  token={this.state.token} user={this.state.user} {...props}/>}  />
+            <Route exact path="/user/community" render={(props)=><Community  token={this.state.token} user={this.state.user}  {...props}/>}  />
             <Route path="/user/byweek" render={(props)=><Byweek  token={this.state.token} user={this.state.user} {...props}/>}  />
             <Route path="/user/babies" render={(props)=><Babies  token={this.state.token} user={this.state.user} {...props}/>}  />
             <Route path="/user/nutritions" render={(props)=><Nutritions  token={this.state.token} user={this.state.user} {...props}/>}  />

@@ -83,7 +83,7 @@ class Post extends Component {
     
     return (
       <div className="container-post" style={{ marginTop: "50px" }}>
-        <div className="card text-center shadow-lg" style={{marginBottom:"20px"}}>
+        <div className="card text-center shadow-lg" style={{marginBottom:"20px", width:"40vw"}}>
           <div className="card-header" style={{backgroundColor:"#b3e5fc"}}>
             <div className="row">
               <div className="col-md-2" style={{ display:"flex", justifyContent:"center",alignItems:"center"}}>
@@ -131,7 +131,7 @@ class Post extends Component {
            
           </div>
           {this.state.post.img_url && (
-              <img style={{width:"40rem", height:"200px"}} src={this.state.post.img_url} class="card-img-top" alt="..."/>
+              <img style={{width:"100%", height:"200px"}} src={this.state.post.img_url} class="card-img-top" alt="..."/>
           )}
         
 

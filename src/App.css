@@ -258,3 +258,24 @@ li:hover {
   background-image: url('/images/comming.jpeg');
   
 }
+.container-community{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 50px
+}
+.container-community{
+  width:100vw;
+  height:100vh;
+  background-image: url('/images/commingsoon.jpeg')
+}
+.commingsoon{
+  width: 50vw;
+  height:500px;
+  background-color: rgb(118, 187, 252, 0.5);
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column
+}

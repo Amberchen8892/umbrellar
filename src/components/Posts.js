@@ -232,7 +232,7 @@ class Posts extends Component {
             <div className="card" style={{ width: "18rem", marginBottom:"30px" }}>
               <img src="/images/advert1.jpg" className="card-img-top" alt="..." />
               <div className="card-body">
-                <h5 className="card-title">Elephant Hooded Towel</h5>
+                <h5 className="card-title">Card title</h5>
                 <p className="card-text">
                   Some quick example text to build on the card title and make up
                   the bulk of the card's content.
@@ -245,7 +245,7 @@ class Posts extends Component {
             <div className="card" style={{ width: "18rem", marginBottom:"30px" }}>
               <img src="/images/advert2.jpg" className="card-img-top" alt="..." />
               <div className="card-body">
-                <h5 className="card-title">Burp Cloths</h5>
+                <h5 className="card-title">Card title</h5>
                 <p className="card-text">
                   Some quick example text to build on the card title and make up
                   the bulk of the card's content.
@@ -258,7 +258,7 @@ class Posts extends Component {
             <div className="card" style={{ width: "18rem", marginBottom:"30px" }}>
               <img src="/images/advert3.jpeg" className="card-img-top" alt="..." />
               <div className="card-body">
-                <h5 className="card-title">Pregnancy Pillow</h5>
+                <h5 className="card-title">Card title</h5>
                 <p className="card-text">
                   Some quick example text to build on the card title and make up
                   the bulk of the card's content.
